@@ -1,17 +1,77 @@
 body {
-    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    top: 50px;
+}
+
+/* the navigation header */
+.navbar-default {
+    /* background: linear-gradient(to right, rgba(0, 0, 90, 1), rgba(0, 70, 90, 1)); */
+    background-color: rgba(25, 25, 25, 0);
+    border-color: rgba(25, 25, 25, 0);
+    border-radius: 0;
+    padding-right: 50px;
+}
+
+/* navigation header elements */
+.navbar-default .navbar-nav > li > a {
+    color: rgb(0, 150, 200);
+    font-size: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: transparent;
+    color: aqua;
+}
+
+/* navigation element 'active' color */
+.navbar-default .navbar-nav > .active > a {
+    background-color: transparent;
+    color: rgb(200, 200, 200);
+}
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: rgb(200, 200, 200);
+}
+
+/* navigation header logo */
+.navbar-default .navbar-brand {
+    color: rgb(0, 150, 200);
+    font-size: 28px;
+    padding-left: 50px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: aqua;
+}
+
+.container-fluid {
     padding: 0;
 }
 
-div#header {
-    height: 30px;
+/* video */
+video {
     width: 100%;
-    padding: 10px;
-    background-color: rgb(0, 0, 90);
-    position: fixed;
-    top: 0;
+    margin: 0;;
+    position: relative;
 }
 
-.icon {
-    height: 100%;
+#video_text_container {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    font-size: 72;
+    color: aqua;
+}
+
+#video_text {
+    color: aqua;
 }
