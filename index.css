@@ -13,7 +13,7 @@ body {
     background-color: rgba(25, 25, 25, 0);
     border-color: rgba(25, 25, 25, 0);
     border-radius: 0;
-    padding-right: 50px;
+    padding-right: 0px;
 }
 
 /* navigation header elements */
@@ -45,7 +45,7 @@ body {
 .navbar-default .navbar-brand {
     color: rgb(0, 150, 200);
     font-size: 28px;
-    padding-left: 50px;
+    padding-left: 0px;
     text-transform: uppercase;
 }
 .navbar-default .navbar-brand:hover,
@@ -60,18 +60,66 @@ body {
 /* video */
 video {
     width: 100%;
-    margin: 0;;
-    position: relative;
+    margin: 0;
 }
 
-#video_text_container {
+#video-container {
     position: absolute;
-    top: 150px;
-    left: 150px;
-    font-size: 72;
-    color: aqua;
+    top: 0;
+    z-index: -1;
+    width: 100%;
 }
 
-#video_text {
+#landing-page {
+    height: 100%;
+    padding-top: 450px;
+    text-align: center;
+}
+
+@media (max-width: 1400px) {
+    #landing-page {
+	padding-top:350px;
+    }
+}
+@media (max-width: 1200px) {
+    #landing-page {
+	padding-top:250px;
+    }
+}
+@media (max-width: 1000px) {
+    #landing-page {
+	padding-top:150px;
+    }
+}
+@media (max-width: 800px) {
+    #landing-page {
+	padding-top:50px;
+    }
+}
+
+#landing-page-header {
+    font-size: 72px;
+    text-transform: capitalize;
+    color: white;
+}
+
+#landing-page-divider {
+    width: 400px;
+    border-top: 1px solid aqua;
+    border-bottom: 1px solid aqua;
+}
+
+/* buttons */
+.btn {
+    padding: 10px 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 22px;
+}
+
+.btn-default {
+    background-color: rgb(0, 90, 90);
     color: aqua;
+    border: 2px solid aqua;
+    text-transform: uppercase;
 }
