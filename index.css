@@ -123,3 +123,39 @@ video {
 	top: 150px;
     }
 }
+
+/* 'about' section */
+#about-section {
+    position: relative;
+    margin-top: 10%;
+    height: 100%;
+}
+#about-section-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#about h1 {
+    color: rgb(0, 150, 200);
+    /* color: rgb(0, 30, 70); */
+    text-transform: uppercase;
+    font-size: 10vh;
+}
+#about .page-header {
+    padding: 0;
+    border-bottom: 2px solid black;
+}
+#about p {
+    font-size: 1.25vw;
+}
+.glyphicon-chevron-down {
+    font-size: 3vw;
+}
+#arrow-scroll {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 75;
+    text-align: center;
+}
