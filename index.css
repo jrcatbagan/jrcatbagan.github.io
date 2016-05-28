@@ -90,7 +90,7 @@ video {
 #landing-page-description h1 {
     color: rgb(0, 150, 200);
     text-transform: uppercase;
-    font-size: 600%;
+    font-size: 700%;;
 }
 #landing-page-description h3 {
     color: white;
@@ -109,28 +109,100 @@ video {
     border-top: 1px solid aqua;
     border-bottom: 1px solid aqua;
 }
+.glyphicon-chevron-down {
+    font-size: 400%;
+}
+#landing-page-arrow-scroll {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10%;
+    text-align: center;
+}
 
+@media (max-width: 1700px) {
+    #landing-page-arrow-scroll {
+	bottom: 20%;
+    }
+}
+@media (max-width: 1500px) {
+    #landing-page-description h1 {
+	font-size: 500%;
+    }
+    #landing-page-arrow-scroll {
+	bottom: 30%;
+    }
+}
+@media (max-width: 1400px) {
+    #landing-page-description h3 {
+	font-size: 150%;
+    }
+    #landing-page-arrow-scroll {
+	bottom: 35%;
+    }
+}
+@media (max-width: 1300px) {
+    #landing-page-description {
+	top: 200px;
+    }
+}
 @media (max-width: 1200px) {
-    #landing-page-buttons {
-	top: 350px;
+    #landing-page-arrow-scroll {
+	bottom: 45%;
     }
 }
 @media (max-width: 1000px) {
-    #landing-page-buttons {
-	top: 250px;
+    #landing-page-arrow-scroll {
+	bottom: 50%;
+    }
+    .glyphicon-chevron-down {
+	font-size: 300%;
+    }
+}
+@media (max-width: 900px) {
+    #landing-page-description {
+	top: 150px;
+    }
+    #landing-page-arrow-scroll {
+	bottom: 55%;
+    }
+    .glyphicon-chevron-down {
+	font-size: 300%;
+    }
+}
+@media (max-width: 850px) {
+    #landing-page-arrow-scroll {
+	bottom: 60%;
     }
 }
 @media (max-width: 767px) {
-    #landing-page-buttons {
-	top: 200px;
+    #landing-page-description {
+	top: 100px;
+    }
+    #landing-page-description h1 {
+	font-size: 300%;
+    }
+    #landing-page-arrow-scroll {
+	bottom: 65%;
     }
     .navbar-collapse {
 	background-color: rgba(0, 0, 0, 0.8);
     }
 }
+@media (max-width: 700px) {
+    #landing-page-description h3 {
+	font-size: 125%;
+    }
+    #landing-page-arrow-scroll {
+	bottom: 70%;
+    }
+}
 @media (max-width: 600px) {
-    #landing-page-buttons {
-	top: 150px;
+    #landing-page-description h3 {
+	font-size: 100%;
+    }
+    #landing-page-arrow-scroll {
+	bottom: 72%;
     }
 }
 
@@ -150,22 +222,17 @@ video {
     color: rgb(0, 150, 200);
     /* color: rgb(0, 30, 70); */
     text-transform: uppercase;
-    font-size: 10vh;
+    font-size: 500%;
 }
 #about .page-header {
     padding: 0;
     border-bottom: 2px solid black;
 }
 #about p {
-    font-size: 1.25vw;
+    font-size: 175%;;
 }
-.glyphicon-chevron-down {
-    font-size: 3vw;
 }
-#arrow-scroll {
     position: absolute;
     right: 0;
     left: 0;
-    bottom: 75;
-    text-align: center;
 }
