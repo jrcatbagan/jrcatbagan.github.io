@@ -70,9 +70,6 @@ video {
     right: 0;
     z-index: 1;
 }
-.navbar-collapse {
-    background-color: rgba(0, 0, 0, 0.8);
-}
 #landing-page-buttons {
     position: absolute;
     top: 450px;
@@ -97,9 +94,12 @@ video {
 	top: 250px;
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 767px) {
     #landing-page-buttons {
 	top: 200px;
+    }
+    .navbar-collapse {
+	background-color: rgba(0, 0, 0, 0.8);
     }
 }
 @media (max-width: 600px) {
