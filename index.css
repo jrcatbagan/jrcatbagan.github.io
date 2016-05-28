@@ -3,10 +3,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.navbar {
-    top: 50px;
-}
-
 /* the navigation header */
 .navbar-default {
     /* background: linear-gradient(to right, rgba(0, 0, 90, 1), rgba(0, 70, 90, 1)); */
@@ -63,48 +59,52 @@ video {
     margin: 0;
 }
 
+#landing-page {
+    position: relative;
+    height: 100%;
+}
+#navbar-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#landing-page-buttons {
+    position: absolute;
+    top: 450px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
 #video-container {
     position: absolute;
     top: 0;
     z-index: -1;
     width: 100%;
-    height: 100%;
 }
 
-#landing-page {
-    position: relative;
-    height: 100%;
-}
-
-#landing-page-buttons {
-    position: relative;
-    top: 450px;
-    text-align: center;
-}
-
-@media (max-width: 1400px) {
-    #landing-page-buttons {
-	top:350px;
-    }
-}
 @media (max-width: 1200px) {
     #landing-page-buttons {
-	top:250px;
+	top: 350px;
     }
 }
 @media (max-width: 1000px) {
     #landing-page-buttons {
-	top:150px;
+	top: 250px;
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     #landing-page-buttons {
-	top:100px;
+	top: 200px;
     }
 }
 @media (max-width: 600px) {
     #landing-page-buttons {
-	top:50px;
+	top: 150px;
     }
 }
 
