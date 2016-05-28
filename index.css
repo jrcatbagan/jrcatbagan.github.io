@@ -87,13 +87,6 @@ video {
     right: 0;
     z-index: 1;
 }
-#landing-page-buttons {
-    position: absolute;
-    top: 450px;
-    left: 0;
-    right: 0;
-    text-align: center;
-}
 #landing-page-divider {
     width: 400px;
     border-top: 1px solid aqua;
