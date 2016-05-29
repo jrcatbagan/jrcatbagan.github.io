@@ -77,19 +77,19 @@ a:focus {
 }
 
 /* 'about' section */
-section#about {
+.content {
     padding: 100px 0;
 }
-section#about hr {
+.content hr {
     margin-top: 0;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
-section#about h1 {
+.content h1 {
     font-size: 60px;
     color: rgb(0, 150, 200);
     text-transform: uppercase;
 }
-section#about p {
+.content p {
     font-size: 25px;
 }
