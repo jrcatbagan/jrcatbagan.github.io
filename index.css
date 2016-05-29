@@ -6,12 +6,11 @@ body {
 /* the navigation header */
 .navbar-default {
     /* background: linear-gradient(to right, rgba(0, 0, 90, 1), rgba(0, 70, 90, 1)); */
-    background-color: rgba(25, 25, 25, 0);
-    border-color: rgba(25, 25, 25, 0);
+    background-color: transparent;
+    border-color: transparent;
     border-radius: 0;
-    padding-right: 0px;
+    padding-top: 20px;
 }
-
 /* navigation header elements */
 .navbar-default .navbar-nav > li > a {
     color: rgb(0, 150, 200);
@@ -20,23 +19,13 @@ body {
     padding-left: 10px;
     text-transform: uppercase;
 }
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover {
     background-color: transparent;
     color: aqua;
 }
-
-/* navigation element 'active' color */
-.navbar-default .navbar-nav > .active > a {
-    background-color: transparent;
-    color: rgb(200, 200, 200);
+.navbar-default .navbar-nav > li > a:focus {
+    color: rgb(0, 150, 200);
 }
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    background-color: transparent;
-    color: rgb(200, 200, 200);
-}
-
 /* navigation header logo */
 .navbar-default .navbar-brand {
     color: rgb(0, 150, 200);
@@ -44,195 +33,55 @@ body {
     padding-left: 0px;
     text-transform: uppercase;
 }
-.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:hover {
+    color: aqua;
+}
 .navbar-default .navbar-brand:focus {
-    color: aqua;
-}
-
-/* buttons */
-.btn {
-    padding: 10px 20px;
-    margin-right: 5px;
-    margin-left: 5px;
-    font-size: 22px;
-}
-.btn-default {
-    background-color: rgb(0, 90, 90);
-    color: aqua;
-    border: 2px solid aqua;
-    text-transform: uppercase;
-}
-
-/* video */
-video {
-    width: 100%;
-    margin: 0;
-}
-#video-container {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    width: 100%;
+    color: rgb(0, 150, 200);
 }
 
 /* landing page */
+header {
+    height: 800px;
+}
 #landing-page {
-    position: relative;
-    height: 100%;
+    background-image: url('images/satellite-array.jpg');
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
 }
-#landing-page-description {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 300px;
-    text-align: center;
+header .landing-page-content {
+    padding-top: 300px;
 }
-#landing-page-description h1 {
+header .landing-page-content .landing-page-heading {
+    font-size: 90px;
     color: rgb(0, 150, 200);
     text-transform: uppercase;
-    font-size: 700%;;
+    text-align: center;
 }
-#landing-page-description h3 {
-    color: white;
+header .landing-page-content .landing-page-description {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
-    font-size: 200%;
-}
-#navbar-container {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-#landing-page-divider {
-    width: 400px;
-    border-top: 1px solid aqua;
-    border-bottom: 1px solid aqua;
+    text-align: center;
 }
 .glyphicon-chevron-down {
     font-size: 400%;
 }
-#landing-page-arrow-scroll {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 10%;
+header .landing-page-content .landing-page-scroll {
+    margin-top: 80px;
     text-align: center;
 }
-
-@media (max-width: 1700px) {
-    #landing-page-arrow-scroll {
-	bottom: 20%;
-    }
-}
-@media (max-width: 1500px) {
-    #landing-page-description h1 {
-	font-size: 500%;
-    }
-    #landing-page-arrow-scroll {
-	bottom: 30%;
-    }
-}
-@media (max-width: 1400px) {
-    #landing-page-description h3 {
-	font-size: 150%;
-    }
-    #landing-page-arrow-scroll {
-	bottom: 35%;
-    }
-}
-@media (max-width: 1300px) {
-    #landing-page-description {
-	top: 200px;
-    }
-}
-@media (max-width: 1200px) {
-    #landing-page-arrow-scroll {
-	bottom: 45%;
-    }
-}
-@media (max-width: 1000px) {
-    #landing-page-arrow-scroll {
-	bottom: 50%;
-    }
-    .glyphicon-chevron-down {
-	font-size: 300%;
-    }
-}
-@media (max-width: 900px) {
-    #landing-page-description {
-	top: 150px;
-    }
-    #landing-page-arrow-scroll {
-	bottom: 55%;
-    }
-    .glyphicon-chevron-down {
-	font-size: 300%;
-    }
-}
-@media (max-width: 850px) {
-    #landing-page-arrow-scroll {
-	bottom: 60%;
-    }
-}
-@media (max-width: 767px) {
-    #landing-page-description {
-	top: 100px;
-    }
-    #landing-page-description h1 {
-	font-size: 300%;
-    }
-    #landing-page-arrow-scroll {
-	bottom: 65%;
-    }
-    .navbar-collapse {
-	background-color: rgba(0, 0, 0, 0.8);
-    }
-}
-@media (max-width: 700px) {
-    #landing-page-description h3 {
-	font-size: 125%;
-    }
-    #landing-page-arrow-scroll {
-	bottom: 70%;
-    }
-}
-@media (max-width: 600px) {
-    #landing-page-description h3 {
-	font-size: 100%;
-    }
-    #landing-page-arrow-scroll {
-	bottom: 72%;
-    }
+a:focus {
+    color: #337ab7;
 }
 
 /* 'about' section */
-#about-section {
-    position: relative;
-    margin-top: 10%;
-    height: 100%;
+section#about {
+    padding: 100px 0;
 }
-#about-section-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-#about h1 {
-    color: rgb(0, 150, 200);
-    /* color: rgb(0, 30, 70); */
-    text-transform: uppercase;
-    font-size: 500%;
-}
-#about .page-header {
-    padding: 0;
-    border-bottom: 2px solid black;
-}
-#about p {
-    font-size: 175%;;
-}
-}
-    position: absolute;
-    right: 0;
-    left: 0;
+section#about hr {
+    margin-top: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
