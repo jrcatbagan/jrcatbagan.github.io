@@ -10,6 +10,7 @@ body {
     border-color: transparent;
     border-radius: 0;
     padding-top: 20px;
+    transition: padding 0.3s;
 }
 /* navigation header elements */
 .navbar-default .navbar-nav > li > a {
@@ -38,6 +39,10 @@ body {
 }
 .navbar-default .navbar-brand:focus {
     color: rgb(0, 150, 200);
+}
+.navbar-default.navbar-shrink {
+    background-color: black;
+    padding: 10px 0;
 }
 
 /* landing page */
@@ -76,7 +81,7 @@ a:focus {
     color: #337ab7;
 }
 
-/* 'about' section */
+/* section */
 .content {
     padding: 100px 0;
 }
