@@ -107,3 +107,77 @@ a:focus {
 .content p {
     font-size: 25px;
 }
+
+.project-container {
+    position: relative;
+    height: 250px;
+    width: auto;
+}
+.color-overlay-1 {
+    position: absolute;
+    top: 0;
+    height: 250px;
+    width: 100%;
+    background-color: rgba(0, 0, 90, 1);
+}
+.color-overlay-2 {
+    position: absolute;
+    top: 0;
+    height: 250px;
+    width: 100%;
+    background-color: rgba(0, 90, 90, 1);
+}
+.color-overlay-3 {
+    position: absolute;
+    top: 0;
+    height: 250px;
+    width: 100%;
+    background-color: rgba(110, 110, 110, 1);
+}
+.color-overlay-4 {
+    position: absolute;
+    top: 0;
+    height: 250px;
+    width: 100%;
+    background-color: rgba(0, 90, 200, 1);
+}
+.col-sm-4 {
+    padding-bottom: 15px;
+}
+@media (min-width: 768px) {
+    .col-sm-4 {
+	width: 100%;
+    }
+}
+@media (min-width: 1000px) {
+    .col-sm-4 {
+	width: 33.33333333%;
+    }
+}
+.text-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 20px;
+}
+.text-overlay h1 {
+    font-size: 40px;
+    color: white;
+    margin: 0;
+    text-align: center;
+    text-transform: none;
+}
+.text-overlay hr {
+    margin-top: 15px;
+    width: 50%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.text-overlay h3 {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    text-transform: none;
+}
