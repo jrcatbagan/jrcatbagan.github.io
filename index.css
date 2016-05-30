@@ -52,16 +52,20 @@ body {
 
 /* landing page */
 header {
-    height: 800px;
-}
-#landing-page {
+    min-height: 100%;
+    position: relative;
     background-image: url('images/satellite-array.jpg');
     background-size: cover;
     background-attachment: scroll;
-    background-position: center center;
+    background-position: center;
+    text-align: center;
+    width: 100%;
 }
 header .landing-page-content {
-    padding-top: 300px;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
 }
 header .landing-page-content .landing-page-heading {
     font-size: 90px;
