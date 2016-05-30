@@ -220,3 +220,10 @@ a:focus {
 .connect-pane-content a {
     color: aqua;
 }
+.connect-pane-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(25, 25, 25, 0.6);
+}
