@@ -1,0 +1,119 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* the navigation header */
+.navbar-default {
+    border-radius: 0;
+    background-color: rgb(25, 25, 25);
+    padding: 10px 0;
+}
+/* navigation header elements */
+.navbar-default .navbar-nav > li > a {
+    color: rgb(0, 150, 200);
+    font-size: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: transparent;
+    color: aqua;
+}
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+}
+.navbar-default .navbar-nav > .active > a {
+    background-color: transparent;
+    color: white;
+}
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: white;
+}
+/* navigation header logo */
+.navbar-default .navbar-brand {
+    color: rgb(0, 150, 200);
+    font-size: 28px;
+    padding-left: 0px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-brand:hover {
+    color: aqua;
+}
+.navbar-default .navbar-brand:focus {
+    color: rgb(0, 150, 200);
+}
+.navbar-default.navbar-shrink {
+    background-color: rgb(25, 25, 25);
+    padding: 10px 0;
+}
+@media (max-width: 767px) {
+    .navbar-collapse {
+	background-color: rgb(0, 0, 50);
+    }
+}
+
+/* landing page */
+header {
+    min-height: 100%;;
+} 
+a:focus {
+    color: #337ab7;
+}
+
+/* section */
+.content {
+    padding: 100px 0;
+}
+.content hr {
+    margin-top: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.content h1 {
+    font-size: 500%;
+    color: rgb(0, 150, 200);
+}
+.content h2 {
+    font-size: 350%;
+    color: rgb(0, 150, 200);
+}
+.content h3 {
+    font-size: 250%;
+    color: rgb(0, 150, 200);
+}
+.content p {
+    font-size: 25px;
+}
+
+.col-sm-4 {
+    padding-bottom: 15px;
+}
+@media (min-width: 768px) {
+    .col-sm-4 {
+	width: 100%;
+    }
+}
+@media (min-width: 1000px) {
+    .col-sm-4 {
+	width: 33.33333333%;
+    }
+}
+
+.content .hr-title {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;;
+}
+
+.content .date-title {
+    text-align: center;
+    font-size: 200%;
+    color: rgb(0, 90, 90);
+}

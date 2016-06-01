@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+	<title>Jarielle Catbagan's Personal Website</title>
+
+	<meta name="author" content="Jarielle Catbagan">
+	<meta name="keywords" content="robots, computers, projects, future,
+	technology">
+	<meta name="description" content="Jarielle Catbagan's personal website
+	for all things robots, computers, technology, and the future.">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- Bootstrap -->
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<link rel="stylesheet" href="index.css">
+
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="syntaxhighlighter.js"></script>
+	<link type="text/css" rel="stylesheet" href="theme.css">
+
+	<script type="text/javascript" async
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+    </head>
+
+    <body id="page-top">
+	<nav class="navbar navbar-default navbar-fixed-top">
+	    <div class="container">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" 
+			data-toggle="collapse" data-target="#navbar" 
+			aria-expanded="false" aria-controls="navbar">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand page-scroll" href="../../#page-top">
+			Jarielle Catbagan</a>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar">
+		    <ul class="nav navbar-nav navbar-right">
+			<li class="hidden active"></li>
+			<li><a class="page-scroll" href="../../#page-top">Home</a></li>
+			<li><a class="page-scroll" href="../../#about">About</a></li>
+			<li><a class="page-scroll" href="#projects">Projects</a></li>
+			<li><a class="page-scroll" href="#connect">Connect</a></li>
+		    </ul>
+		</div>
+	    </div>
+	</nav>
+
+<section class="content">
+<div class="container">
+    <center>
+	<h1>Google Summer of Code</h1>
+	<h3>Porting the MicroMonitor Bootloader</h3>
+	<hr class="hr-title">
+    </center>
+</div>
+
+<div class="container">
+    <!-- ............................................................... -->
+    <br>
+    <div class="date-title">May 10, 2015</div>
+    <h3>Accepted by RTEMS for Google Summer of Code 2015</h3>
+    <hr>
+
+    <p>It was a glorious day when I discovered that I was accepted by RTEMS for GSoC
+    2015.  I was in class during the time that the accepted students were going to
+    be announced and so I was patiently waiting until the time has finally arrived.
+    The minutes leading up to the annoucement has instilled the feeling of
+    excitement within me which was growing more and more as the time counted down to
+    the point where it was almost unbearable.  After almost two months of planning,
+    preparing, and waiting, judgement day has finally arrived and I have survived!</p>
+
+    <p>Now that all the torture has finally come and passed, it is now time to get down
+    to business.  By business, I mean that from now up until the "Coding Phase",
+    which is May 25th, I have to take care of all the logistics associated with
+    being admitted to the program and to also prepare myself before I undertake my
+    exciting project with RTEMS.</p>
+
+    <p>It is an honor for my proposed project to be considered and accepted by RTEMS.
+    I am very fortunate enough to have discovered RTEMS and to have the opportunity
+    to work with industry professionals on a project involving real-time operating
+    systems (RTOS).  I also view this as a wonderful opportunity to not only enhance
+    my knowledge and exposure to embedded systems but to also have the chance to
+    experience what it's like to participate in open-source development.</p>
+
+    <p>I am very excited to be a part of GSoC 2015 and I am looking forward to working
+    with the RTEMS community, my mentors, and the students who were also accepted by
+    RTEMS.</p>
+
+    <p>Let us all have a great summer!</p>
+
+    <center>
+	<img src="/assets/GSoC-2015-Logo.jpg" alt="GSoC 2015 Logo">
+    </center>
+
+    <!-- ............................................................... -->
+    <br>
+    <h3>Project Overview: Porting MicroMonitor (uMon) to the Beaglebone Black</h3>
+    <hr>
+
+    <p>My project that I will be working on with RTEMS for GSoC 2015 involves porting
+    MicroMonitor to the Beaglebone Black in order to replace U-boot.  Before I dive
+    into what MicroMonitor, the Beaglebone Black, and U-boot really are, I will
+    first touch up on the reasons why I am undertaking this project.  </p>
+
+    <p>One of the major motivations in undertaking this project is with the intention
+    of furthering the development of existing open-source implementations that
+    coincide with my interests.  I fully support open-source and the benefits that
+    it can provide and has provided to both individuals and organizations alike.
+    One of the important aspects of open-source is that it encourages the
+    re-usability of existing implementations where individuals can build off of
+    existing work to either make improvements or to be something that they can
+    utilize as part of their project.  The inherent benefit of this is that it
+    provides individuals the capability to focus on what really matters rather than
+    focusing on the fundamentals or having to reimplement something that already
+    exists.  As a result, resources are maximized and time is allocated more
+    efficiently towards development as a whole.</p>
+
+    <p>Building off of the premise established, I view this project as an opportunity
+    to experience working with the open-source community and to have the chance to
+    work alongside leading industry professionals.  Furthermore, I wanted to gain
+    hands-on experience with real-time operating systems and embedded systems
+    and working with RTEMS for GSoC 2015 will help me reach those goals. It is also
+    this very reason why I expressed my interest towards RTEMS.</p>
+
+    <p>Going more into the specifics of this project, the Beaglebone Black, which is
+    one of the popular single board computers capable of running a plethora of
+    operating systems specifically those derived from Linux.  The bootloader is 
+    essentially a program that is executed first
+    on a system when it is first powered on.  The bootloader is responsible for
+    initializing the system before locating the main application, which in many
+    cases is an operating system, and then passing execution to it.  How it sets up
+    the system and how it passes control to the main application is implementation
+    defined.</p>
+
+    <center>
+	<img src="/assets/Beaglebone-Black.png" alt="Beaglebone Black" />
+	<br>
+	<b>Figure 1. Beaglebone Black</b>
+    </center>
+    <br>
+
+    <p>The Beaglebone Black currently uses the U-boot bootloader.
+    Despite the features bundled with U-boot, one of the main limitations that can
+    make this bootloader unattractive is the restrictions that it imposes both on
+    the system and the developer.  These set of restrictions is what propels the
+    effort that will be undertaken to replace this bootloader on the Beaglebone
+    Black.  This alternative bootloader is MicroMonitor.</p>
+
+    <p>MicroMonitor is an open-source bootloader developed by Ed Sutter.  What makes
+    MicroMonitor attractive is that it aligns with the RTEMS perspective and
+    utilizing this bootloader will relieve the limitations in how RTEMS is used.
+    MicroMonitor has an extensive set of features that provides embedded systems
+    developers with a plethora of options to utilize for their applications.  My
+    involvement with RTEMS for GSoC 2015 will encompass porting MicroMonitor to the
+    Beaglebone Black.  Future efforts will prospectively include extending it to
+    other Beagle platforms (i.e. Beagleboard, Beagleboard-xM, and Beaglebone), to
+    other platforms, as well as to other architectures.</p>
+
+    <p>To ease the development of porting MicroMonitor to the Beaglebone Black, one of
+    the existing ports located under the <code>csb740</code> port directory shares similarities
+    with the board.  As a result, a copy of this directory will be performed and
+    work will build off of this port.  In the process of performing the port, the
+    <code>csb740</code> port will be transformed by replacing the CSB740 specifics with
+    that of the Beaglebone Black.</p>
+
+    <p>More information about MicroMonitor including source releases and documentation
+    can be found <a href="http://www.umonfw.com" target="_blank">here</a>.</p>
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">May 22, 2015</div>
+    <h3>AM335x/Beaglebone Black Boot Process</h3>
+    <hr>
+
+    <p>The main goal of this project is to port MicroMonitor to the Beaglebone Black.
+    In order to achieve this, the first step that must be taken is to fully
+    understand the fundamentals of the current boot process that the Beaglebone
+    Black undergoes.  This will provide the insight on how to approach the process
+    of porting MicroMonitor.</p>
+
+    <p>Referring to the <a
+	 href="https://github.com/CircuitCo/BeagleBone-Black/blob/master/BBB_SRM.pdf?raw=true" target="_blank">Beaglebone Black System Reference Manual Revision C.1</a> 
+    (BBB SRM), Section 6.7, the
+    board can boot from either the onboard eMMC or from a micro SD card based on the
+    state of the boot button.  The AM335x ARM Cortex-A8 processor itself has a
+    multitude of boot options based on the configuraton of the SYSBOOT pins on the
+    processor.  The configuration of the SYSBOOT pins determines where and in what
+    order the  processor locates for a valid boot source.  This information is
+    consolidated by the processor into what is known as the boot-device list.  The
+    possible SYSBOOT pin values can be found in the <a
+	href="http://www.ti.com/lit/ug/spruh73l/spruh73l.pdf" target="_blank">AM335x Sitara Processors Technical Reference Manual</a>
+    (AM335x TRM) Section 26.1.2 and tablified in Table 26-7.</p>
+
+    <p>From Figure 26-6 of the AM335x TRM, a flowchart is shown which illustrates the
+    process that the processor undergoes when it is executing its boot procedure.
+    This boot procedure corresponds to the internal ROM-based bootloader.</p>
+
+    <center>
+	<img src="/assets/AM335x-TRM-Figure-26.6-ROM-Code-Booting-Procedure.png" alt="AM355x TRM Figure 26-6 ROM Code Booting
+	Procedure">
+	<br>
+	<b>Figure 1. AM335x ROM Code Booting Procedure</b>
+    </center>
+    <br>
+
+    <p>From this flowchart, it can be seen that the processor uses a boot-device list
+    that it creates based on the configuration of the SYSBOOT pins.  One-by-one it
+    processes each individual entry in this boot-device list until it finds a valid
+    one.  Once it finds a valid entry, it boots from the source specified in this
+    entry.  Otherwise the processor enters what is known as a "Dead Loop".  Here the
+    processor simply jumps to a specific location in internal memory where it loops
+    forever until it is reset.</p>
+
+    <p>Assuming that the processor does find a valid boot source, it transfers a
+    bootable image from this source to the AM335x internal SRAM at location
+    0x402F0400.  The layout of this memory is shown in Figure 26-4 of the AM335x TRM
+    where it also illustrates the contents of this memory and the size of each area.
+    The area of memory that we are concerned about right now, is the area where the
+    bootable image is transferred to.  The maximum size that the bootable image can
+    be is roughly 109Kb.</p>
+
+    <center>
+	<img src="/assets/AM335x-TRM-Figure-26.4-Public-RAM-Memory-Map.png" alt="AM335x TRM Figure 26-4 Public RAM Memory
+	Map">
+	<br>
+	<b>Figure 2. AM335x Public RAM Memory MAP</b>
+    </center>
+    <br>
+
+    <p>In order to put the process of porting MicroMonitor into context, the current
+    boot process will be elaborated.  Referring back to the BBB SRM Section 6.7, the
+    image that is transferred into the AM335x internal SRAM is what is known as the
+    secondary program loader (SPL).  This SPL is an integral component of U-Boot and
+    as a result it is built alongside the main U-Boot image.  The purpose of this
+    SPL is to intialize a basic system, specifically the external DDR3 RAM, before
+    locating the main U-Boot image and transferring it to the DDR3 RAM.  This is
+    done to alleviate the memory constraints as U-Boot is a large image and needs a
+    substantial amount of memory in order to incorporate all of its functionality
+    that has been integrated into it.  This main U-Boot image can be considered as
+    the third-stage bootloader.</p>
+
+    <p>The first task of this project is to determine how MicroMonitor will be ported.
+    That is, will it have the same configuration as the existing U-Boot
+    implementation or will all the bootloader functionality fit into one image well
+    within the 109Kb limit.  This will be determined and elaborated in the next
+    upcoming post.</p>
+
+    <p>To finish things off, it is worth mentioning that the Beaglebone Black shares
+    some similarities with the other Beagle platforms.  Hypothetically speaking, it
+    would not be that difficult to extend the MicroMonitor port to the other
+    platforms in the future.</p>
+
+    <p>Thanks for tuning in! Until next time!</p>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">May 23, 2015</div>
+    <h3>Rudimentary uMon Image for Beaglebone Black UART Booting</h3>
+    <hr>
+    <p>After understanding what boot options that the AM335x, or in the case of this
+    project that would be the Beaglebone Black, there are a multitude of approaches
+    in downloading a bootable image into the internal SRAM where it is then
+    executed.  Execution of this downloaded bootlable image is simply transferred to
+    by the internal ROM-based bootloader that is found on the AM335x processor.  </p>
+
+    <p>One of the convenient ways of downloading an image and then booting it is using
+    the UART boot procedure.  This approach is part of the periheral booting options
+    which is elaborated in general in the AM335x TRM, Section 26.1.8 and
+    specifically in Section 26.1.8.5.</p>
+
+    <p>The UART boot procedure utilizes UART0 on the AM335x processor.  Fortunately,
+    UART0 can be accessed via the 6-pin header on the top of the Beaglebone Black.
+    This is shown below.</p>
+
+    <center>
+	<img src="/assets/Beaglebone-Black-Serial-Debug-Connector.png" alt="Beaglebone Black Serial Debug Connector">
+	<br>
+	<b>Figure 1. Beaglebone Black Serial Debug Connector</b>
+    </center>
+    <br>
+
+    <p>In order to transfer a bootable image, the UART communications must be set up to
+    115200 baud, with 8-bits of data, no parity, 1 stop bit, and no flow control.
+    To transfer the image itself the x-modem protocol must be used and configured to
+    1K packets and CRC-16 checksums.</p>
+
+    <p>In selecting an image to download, initiating the transfer of the bootable
+    image, and then routing any input and output to and from the Beaglebone Black
+    via UART, a terminal emulator in conjunction with the program implementing the
+    x-modem protocol was used.  </p>
+
+    <p>For the terminal emulator <code>minicom</code> was used, and the program implementing the
+    x-modem protocol was <code>sx</code>.</p>
+
+    <p>One thing worth mentioning is the process of initiating a UART boot procedure on
+    the Beaglebone Black.  We know that the boot button found on the board dictates
+    where it boots from.  Not pressing the button causes the Beaglebone Black to
+    boot from its default source, which is the onboard eMMC.  With a micro SD card
+    inserted, holding down the boot button causes the board to boot from there.  If
+    instead no micro SD card was inserted but the boot button is held down, the
+    board first attempts to boot from USB and then from the serial port (UART0).
+    Since we will not transfer any image via USB, the board will simply ignore this
+    and proceed to our intended boot source which is the serial approach.</p>
+
+    <p>After the hardware and the terminal emulator have been set up, the next thing to
+    do is to prepare the basic uMon image that will be transferred and then booted.
+    Since work will be built off of the existing <code>csb740</code> port, for the most part
+    the initial uMon image performing the UART boot procedure can use the existing
+    code with some modifications.  As an initial test, the basic image will simply
+    print an arbitrary character in a loop.  Once this point has been reached, the
+    next steps of this project would be to start stripping out the unnecessary code
+    and integrating the code that is essential to get a full working uMon image up
+    and running.</p>
+
+    <p>To set up the initial uMon image for UART booting, the only modifications that
+    need to be done to the existing copy of the <code>csb740</code> port is setting the base
+    memory address for UART0, setting the memory location where the image will be
+    located to be executed, and then jumping to a function that will simply print an
+    arbitrary character in a loop.</p>
+
+    <p>According to the AM335x TRM, the base address of UART0 is 0x44E09000 and is
+    established in the port specific <code>config.h</code> header file with the line 
+    <code>#define CONSOLE_UART_BASE 0x44E09000</code>.</p>
+
+    <p>Next, the memory location where the image will be located and the size that the
+    image will have including its executable code is indicated in the <code>makefile</code>.
+    This information is as follows:</p>
+
+<pre><code>BOOTROMBASE=0x402F0400 
+BOOTROMLEN=0x19000
+</code></pre>
+
+
+    <p>Finally, execution will jump to a function that will print an arbitrary
+    character in a loop and is done by replacing the instruction <code>bl start</code> in the
+    assembly file <code>rom_reset.S</code> to our own function.</p>
+
+    <p>The function definition resides in <code>uart16550.c</code>.</p>
+
+    <pre class="brush: cpp">
+	void target putchar loop(void)
+	{
+	    int c;
+
+	    while (1)
+		    c = target_putchar('8');
+	}
+    </pre>
+
+    <p>Once that is done, the basic uMon image is built, the Beaglebone Black is set up
+    to boot from UART, and the terminal emulator is set up to receive input and send
+    output as well as to transfer the bootable image.  The last thing to do is to
+    actually transfer the image itself and then to see the result.</p>
+
+    <p>When the boot button is held down on the Beaglebone Black with no micro SD card
+    inserted, the board will attempt to boot from USB and then from the serial port.
+    During the UART boot procedure, the internal ROM-based bootloader prints out the
+    character 'C' as it is searching for a bootable image from the serial port.</p>
+
+    <center>
+	<img src="/assets/Beaglebone-Black-UART-Boot-Startup.png" alt="Beaglebone Black UART Boot Procedure Startup" />
+	<br>
+	<b>Figure 2. Beaglebone Black UART Boot Procedure Startup</b>
+    </center>
+    <br>
+
+    <p>Shortly after, a bootable image is transferred to the internal SRAM.</p>
+
+    <center>
+	<img src="/assets/Beaglebone-Black-UART-Boot-Image-Transfer.png" alt="Beaglebone Black UART Boot Image Transfer" />
+	<br>
+	<b>Figure 3. Beaglebone Black UART Boot Image Transfer</b>
+    </center>
+    <br>
+
+    <p>Upon successful download, minicom indicates the situation accordingly.</p>
+
+    <center>
+	<img src="/assets/Beaglebone-Black-UART-Boot-Image-Transfer-Complete.png" alt="Beaglebone Black UART Boot Image Transfer Complete" />
+	<br>
+	<b>Figure 4. Beaglebone Black UART Boot Image Transfer Complete</b>
+    </center>
+    <br>
+
+    <p>The result is an arbitrarily chosen character to be printed in a loop.</p>
+
+    <center>
+	<img src="/assets/Basic-uMon-Image-Executing.png" alt="Basic uMon Image Executing" />
+	<br>
+	<b>Figure 5. Basic uMon Image Executing</b>
+    </center>
+    <br>
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">June 13, 2015</div>
+    <h3>The Approach to Porting uMon to the Beaglebone Black</h3>
+    <hr>
+    <p>The approach that I am taking when porting uMon to the Beaglebone Black is what
+    I like to consider as a top-down approach.  What I mean by a top-down approach
+    is following the program flow of the existing uMon implementation for the
+    <code>csb740</code> port  and modifying the code step-by-step to match the
+    AM335x/Beaglebone Black specifics.  Not only would this be an efficient
+    approach, but it will allow me to gain a better understanding of what uMon does
+    and how it does it in order to initialize the system, perform the necessary
+    tasks, and eventually load an application image before passing control to it.</p>
+
+    <p>What this approach implies is starting at the location where uMon first
+    executes.  Most often the code that first executes when a system is first
+    brought up, is implemented at the very low-level in assembly.  The source file
+    containing the code that uMon first executes depends largely on how uMon boots
+    up.  There is the case where the uMon image may be booted up by a previous
+    bootloader integrated into the system by transferring the image into RAM and
+    then passing control to it.  The other case is where there is no previous
+    existing bootloader and that the first instruction executed will be some
+    location in a non-volatile memory such as ROM.  As a result there are two ways
+    that uMon can run and that is either being configured to run from RAM or to run
+    from a non-volatile memory such as ROM.</p>
+
+    <p>The easiest of the two approaches is running directly from ROM because there is
+    no possibility of relocation happening.  With the RAM-based version of uMon,
+    there is some complexity involved as the uMon image would first have to be
+    downloaded into RAM where control is then passed to this now RAM resident uMon
+    image.</p>
+
+    <p>In the case of the AM335x/Beaglebone Black, an image can be downloaded from
+    multiple boot sources and is ultimately transferred into the internal SRAM.
+    This process was elaborated in a previous post which can be found
+    <a href="http://www.jariellecatbagan.com/am335x-beaglebone-black-boot-process/">here</a>.
+    This process is slightly different as the image is downloaded into the internal
+    SRAM at a fixed location by the internal ROM bootloader of the AM335x.  With this
+    configuration, it is possible to run a ROM-based version of uMon thus providing
+    the capability to avoid the complexities of running a RAM-based version.</p>
+
+    <p>Since the focus is running a ROM-based version of uMon, the first code that is
+    executed is located in <code>rom_reset.S</code></p>
+
+    <p>The first thing that is done in <code>rom_reset.S</code>, is defining the sizes of the
+    stacks for each individual mode of the processor, declaring the stacks, and then
+    establishing the mechanisms for the stacks to be allocated during the process of
+    linking the final image.</p>
+
+<pre><code># Have a separate stack for each processor mode.
+
+# define sizes for each mode's stack
+    .equ FiqStackSz, 4096
+    .equ IrqStackSz, 4096
+    .equ AbtStackSz, 4096
+    .equ UndStackSz, 4096
+    .equ SysStackSz, 4096
+
+# declare the stacks
+    .extern MonStack
+    .global FiqStack
+    .global IrqStack
+    .global AbtStack
+    .global UndStack
+    .global Sysstack
+
+# allocate the stacks
+    .comm FiqStack, FiqStackSz  # for the FIQ mode 
+    .comm IrqStack, IrqStackSz  # for the IRQ mode 
+    .comm AbtStack, AbtStackSz  # for the Abort mode 
+    .comm UndStack, UndStackSz  # for the Undefined mode 
+    .comm SysStack, SysStackSz  # for the System mode 
+    # User mode has the same stack as System mode 
+</code></pre>
+
+    <p>The first instruction that is executed is the instruction <code>b coldstart</code> located
+    within the <code>reset</code> label.</p>
+
+    <pre><code># exception table at address 0
+
+reset:
+    b coldstart
+    b undefined_instruction
+    b software_interrupt
+    b abort_prefetch
+    b abort_data
+    b not_assigned
+    b interrupt_request
+    b fast_interrupt_request
+</code></pre>
+
+
+    <p>From here, it ensures that all interrupts are disabled, the processor mode is
+    set to Supervisor mode, the parameter specifying that uMon is in the
+    <code>INITIALIZE</code> state is saved in the first register associated with the first
+    argument of a C function.  This parameter is used when uMon is executing code
+    implemented in C.  It then sets up the stacks in each of the individual
+    processor modes, with the exception of User mode since it shares the same stack
+    with System mode, then changes the processor mode to System mode before finally
+    jumping to the first C function.</p>
+
+<pre><code>jump_to_c:
+    bl start
+
+    # the C code should never return, i.e. this point should not be reached 
+    b reset
+</code></pre>
+
+    <p>Once uMon reaches the first C function, the remaining initializations are
+    implemented in C before eventually reaching to the point where uMon presents a
+    command line to the user for them to execute commands.  This uMon command line
+    is the current main goal of getting the port for the Beaglebone Black working.
+    From here, it is now a matter of integrating the remaining mechanisms to boot up
+    the main application image.</p>
+
+    <p>The jump to <code>start</code> in <code>rom_reset.S</code> is a function defined in <code>start.c</code> in the
+    <code>common</code> directory.  The general order of function invocation that uMon
+    undergoes until it reaches the point where it presents the uMon command line to
+    the user is as follows:</p>
+
+    <ol>
+    <li><code>start()</code></li>
+    <li><code>umonBssinit()</code></li>
+    <li><code>init0()</code></li>
+    <li><code>init1()</code></li>
+    <li><code>init2()</code></li>
+    <li><code>reginit()</code></li>
+    <li><code>init3()</code></li>
+    </ol>
+
+    <p>Referring back to the aforementioned approach in porting uMon to the Beaglebone
+    Black, the first step is getting <code>umonBssinit()</code> working.  <code>umonBssinit()</code> is
+    defined in <code>start.c</code> as well.</p>
+
+<pre class="brush: cpp">
+void
+umonBssInit(void)
+{
+    int *tmp;
+    volatile ulong *bssptr;</p>
+
+    tmp = &amp;bss_start;
+    bssptr = (ulong *)tmp;
+    while (bssptr &lt; MonStack)
+	    *bssptr++ = 0;
+    bssptr = (ulong *)MonStack + (MONSTACKSIZE / 4);
+    tmp = &amp;bss_end;
+    while (bssptr &lt; (ulong *)tmp)
+	    *bssptr++ = 0;
+}
+</pre>
+
+    <p><code>umonBssInit()</code> simply sets the memory range allocated to the bss section to
+    zero.  The function description of <code>umonBssInit()</code> indicates that all of the RAM
+    that uMon uses is located within the bss section.  As a result, during the bss
+    section initialization, <code>umonBssInit()</code> does not touch this area.  </p>
+
+    <p>Looking at lines 7 and 12 from the function definition of <code>umonBssInit()</code> above,
+    it can be seen that the values of <code>bss_start</code> and <code>bss_end</code> are assigned from
+    and are used as the boundaries for the bss section.  Hence, the bss
+    initialization does not exceed these boundaries.</p>
+
+    <p>The variables <code>bss_start</code> and <code>bss_end</code> are assigned during the linking process
+    of the final uMon image.  In our case, since we are ultimately building a
+    ROM-based version of uMon, these values are assigned in the linker script
+    template for building a ROM-based uMon image.  This template linker script is
+    converted to the actual linker script during the process of building the actual
+    image.  In the context of the Beaglebone Black port, the template linker script
+    is called <code>BEAGLEBONEBLACK_boot.ldt</code>.</p>
+
+    <p>At the very end of the <code>SECTIONS</code> command in the linker script template, which
+    is shown below, it can be seen that <code>bss_start</code> and <code>bss_end</code> are being assigned
+    in the sections <code>.bss</code> and <code>.sbss</code> respectively.  These sections are then
+    specified to be located within DRAM.</p>
+
+<pre><code>SECTIONS
+{
+...
+    .bss    :
+    {
+        bss_start = .;
+        atag_space = .;
+        . += ATAGSIZE;
+        end_atag_space = .;
+        *(.bss) *(COMMON)
+    } &gt;dram
+
+    .sbss   :
+    {
+        *(.sbss)
+        bss_end = .;
+    } &gt;dram
+}
+</code></pre>
+
+    <p>Towards the top of the linker script template, it can be seen that the base of
+    the DRAM location is specified from the variable <code>DRAMBASE</code>.  This assignment is
+    within the <code>MEMORY</code> command which is shown below.</p>
+
+<pre><code>MEMORY  
+{
+    rom : org = ROMBASE, len = ROMLEN
+    dram : org = DRAMBASE, len = DRAMLEN
+
+}
+</code></pre>
+
+    <p>Determining the location where <code>DRAMBASE</code> is assigned results in finding the
+    assignment in the <code>Makefile</code>.</p>
+
+    <p>Locating the makefile rule where the ROM-based uMon image is built has revealed
+    that the value of <code>DRAMBASE</code> in the linker script template is assigned to be
+    equivalent to <code>BOOTRAMBASE</code>.  The recipe in this rule is as follows:</p>
+
+
+<pre><code>sed -e s/ROMBASE/$(BOOTROMBASE}/ -e s/ROMLEN/$(BOOTROMLEN)/ \
+    -e s/DRAMBASE/$(BOOTRAMBASE)/ -e s/DRAMLEN/$(BOOTRAMLEN)/
+</code></pre>
+
+    <p>In the same makefile, <code>BOOTRAMBASE</code> is assigned the value 0x80000000.  This
+    value was inherited from the value of <code>BOOTRAMBASE</code> from the <code>csb740</code> port.</p>
+
+    <p>By referring to the <a href="http://www.ti.com/lit/ug/spruh73l/spruh73l.pdf">AM335x
+	TRM</a>, section 2.1 table 2-1, it
+    can be seen that 0x80000000 is the base address for <code>EMIF0 SDRAM</code> which is the
+    location where the DDR3 RAM on the Beaglebone Black first starts.  This DRAM is
+    external memory and requires initial configuration in order to use this memory.
+    What this entails is that in order to get <code>umonBssInit()</code> to work, the external
+    DDR3 memory must already be set up.  Hence, this external memory configuration
+    must be done first before proceeding to get the other initialization functions
+    working.</p>
+
+    <p>The process of configuring the external DDR3 RAM will be documented extensively
+    in the next blog post.</p>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">June 14, 2015</div>
+    <h3>The Theory Behind External DDR3 initialization on the Beaglebone
+	Black</h3>
+    <hr>
+    <h4><strong>Introduction</strong></h4>
+
+    <p>Before proceeding into the details of configuring and initializing the external
+    DDR3 SDRAM on the Beaglebone Black, the theory behind how DDR3 operates, what it
+    entails, and how it is set up generally and specifically with the AM335x
+    processor will first be elaborated.  This will provide the opportunity to gain a
+    better understanding of the relationship between the DDR3 memory with the rest
+    of the system.</p>
+    <br>
+    <br>
+
+    <h4><strong>SDRAM Composition and Operation</strong></h4>
+
+    <p>DDR3 SDRAM is an abbreviation for the third generation of double data rate
+    synchronous dynamic random-access memory.  Breaking down the abbreviation, DRAM
+    is RAM, or random access memory, that is composed of mainly capacitors and
+    transistors.  One capacitor and one transistor is all that is needed to store
+    one bit.  On the contrary, SRAM can use up to four to six transistors to store
+    one bit.  As a result, DRAM can achieve higher densities at a reduced cost
+    compared to SRAM.</p>
+
+    <p>How a capacitor in conjunction with a transistor encode a bit is that if a
+    capacitor stores a charge then the value of the bit is 1, otherwise it is 0.
+    DRAM is dynamic in the sense that the capacitors have to be refreshed
+    periodically as the charge stored in the capacitors slowly discharge, or leak,
+    over time.  </p>
+
+    <p>Unlike DRAM where operations are asynchronous, SDRAM operates on a clock.  There
+    are mainly two forms of SDRAMs and those are "single data rate" and "double data
+    rate".  Single data rate SDRAMs can only perform operations at one edge of a
+    clock signal.  The "double data rate" term in the abbreviation refers to the
+    fact that data can be transferred at both edges of a clock that is fed into the
+    the DDR3 memory.  This effectively doubles the data throughput compared to other
+    conventional memories that transfer data at only one edge of a clock signal
+    (single data rate SDRAMs).</p>
+
+    <p>All SDRAMs provide the same set of control signals and bank selection and
+    addressing schemes.  There are only a subset of differences introduced in
+    successive generations of SDRAMs.</p>
+
+    <p>The control signals that can be found in all SDRAMs are as follows:</p>
+
+    <center>
+	<img src="/assets/SDRAM-Control-Signals-Table.png" alt="SDRAM Control SignalsTable" />
+	<br>
+	<b>Figure 1. SDRAM Control Signals</b>
+    </center>
+    <br>
+
+    <p>SDRAM devices are divided into 2, 4, or 8 independent internal memory banks.  To
+    address one of the internal memory banks, up to three bank address inputs (i.e.
+    BA0, BA1, and BA2) are used to select which bank that a particular command
+    should be applied to.</p>
+
+    <p>The remaining control inputs are the address inputs that select which row and
+    which column should be addressed within a memory bank.</p>
+    <br>
+    <br>
+
+    <h4><strong>DDR3 SDRAM on the Beaglebone Black</strong></h4>
+
+    <p>The latest revision of the Beaglebone Black, which is the one that I have and
+    will be using for this project when porting uMon, is Revision C.  The board is
+    integrated with a 512MB DDR3L SDRAM.  As specified in the <a
+    href="https://github.com/CircuitCo/BeagleBone-Black/blob/master/BBB_SRM.pdf?raw=true"
+    target="_blank">BBB SRM</a>, Section 5.3.1, there are two different 512MB DDR3L part numbers and
+    those are the MT41K256M16HA-125 from Micron and the D2516EC4BXGGB from Kingston.
+    On the board that I will be using, it has the 512MB DDR3L from Kingston where
+    the datasheet can be found <a
+    href="http://www.datasheetspdf.com/PDF/D2516EC4BXGGB/855386/1"
+    target="_blank">here</a>.</p>
+
+    <p>Some of the specifications of the DDR3L SDRAM is that it has a density of 4Gbits
+    or 512MB which is divided into 8 banks.  Each bank consists of 32M 16-bit words.
+    The page size, which is also known as the number of bytes within a row, is 2KB.
+    Within a single bank, given that there are 64MB within the bank, the number of
+    rows is 64MB / 2KB = 32768 rows.  As a result the number of bits required for
+    the row address is 15 bits (A0 to A14).  Given that there are 2KB in each row
+    and that the word width is 16-bits, the number of columns in each row is 2KB / 2
+    bytes (the word width) = 1024 columns.  Therefore, the number of bits required
+    for the column address is 10 bits (A0 to A9).</p>
+
+    <p>Additional specifications of the DDR3L SDRAM is that it has both sequential and
+    interleaving bursts with burst lengths of 8 and 4 with the Burst Chop (BC)
+    command.  Furthermore, both the /CAS latencies for reading and writing are
+    programmable.</p>
+    <br>
+    <br>
+
+    <h4><strong>DDR3 Reset and Initialization</strong></h4>
+
+    <p>A specific sequence of steps need to be taken when initializing DDR3 SDRAM in
+    order to configure the memory properly for use.  In the <a href="https://www.jedec.org/standards-documents/docs/jesd-79-3d">JEDEC DDR3 SDRAM
+    Standard</a> Section 3.3.1, the reset and initialization procedure for DDR3 is
+    concisely enumerated.</p>
+
+    <p>In the context of powering up with no prior power supplied to the system (i.e.
+    cold start), the power-up and initialization sequence is as follows:</p>
+
+    <ol>
+    <li>After applying power, <code>/RESET</code> is recommended to be maintained
+	below \(0.2 \times V_{DD}\). <code>/RESET</code> must be asserted for a
+	minimum of \(200 \mu s\).</li>
+    <li>Once /RESET is de-asserted, the system must wait for \(500\mu s\) until
+	<code>CKE</code> becomes active, i.e. "high".  During this time, the DRAM
+       	will start the internal state initialization which will be done independently
+	of external clocks.</li>
+    <li>The clock lines <code>CK</code> and <code>/CK</code>, where the latter clock
+	signal is the inverse of the former, must be started and stabilized for at
+	least \(10 ns\) or about \(5t_{CK}\) before <code>CKE</code> goes
+	active.  Once <code>CKE</code> is "high" after reset, <code>CKE</code>
+	needs to be maintained in the "high" state until the initialization sequence is
+	finished.  This includes the expiration of \(t_{DLLK}\) and \(t_{ZQinit}\).</li>
+    <li>As long as <code>/RESET</code> is asserted, the DDR3 SDRAM keeps its
+	on-die termination (<code>ODT</code>) in the high-impedance state.
+	ODT is still in the high-impedance state after <code>/RESET</code> is
+	de-asserted until <code>CKE</code> is "high".  When <code>CKE</code> is
+	"high", the <code>ODT</code> input signal may be statically held at either
+	"low" or "high".  If <code>RTT_NOM</code> is to be enbled in <code>MR1</code>,
+	the <code>ODT</code> input signal must be statically held "low".  In all
+	other cases, the <code>ODT</code> input signal remains static until the
+	initialization sequence is finished and \(t_{DLLK}\) and \(t_{ZQinit}\)
+	expire.</li>
+    <li>Once <code>CKE</code> is high, the system must wait a minimum of "Reset
+	<code>CKE</code> Exit" time, \(t_{XPR}\), before issuing the first
+	<code>MRS</code> command to load mode register.  \(t_{XPR} = max(t_{XS};
+	5 \times t_{CK})\)</li>
+    <li>Issue an <code>MRS</code> command to load <code>MR2</code> with all
+	application settings.  To do this, the bank address bit(s) <code>BA0</code>
+	and <code>BA2</code> must be "low", and <code>BA1</code> must be "high".</li>
+    <li>Issue an <code>MRS</code> command to load <code>MR3</code> with all
+	application settings.  To do this, the bank address bit(s) <code>BA2</code>
+	must be "low", and <code>BA0</code> and <code>BA1</code> must be "high".</li>
+    <li>Issue an <code>MRS</code> command to load <code>MR1</code> with all
+	application settings and <code>DLL</code> enabled.  To do this, the address
+	bit <code>A0</code> must be "low", the bank address bit(s) <code>BA1</code>
+	and <code>BA2</code> must be "low" and <code>BA0</code> must be "high".</li>
+    <li>Issue an <code>MRS</code> command to load <code>MR0</code> with all
+	application settings and <code>DLL reset</code>.  To do this, the address
+	bit <code>A8</code> must be "high" and all bank address bits must be "low".</li>
+    <li>Issue a <code>ZQCL</code> command to start ZQ calibration.</li>
+    <li>Wait for both \(t_{DLLK}\) and \(t_{ZQinit}\) to complete.</li>
+    <li>The DDR3 SDRAM is now ready for normal operation.</li>
+    </ol>
+
+    <br>
+    <br>
+    <h4><strong>DDR3 Mode Registers</strong></h4>
+
+    <p>DDR3 SDRAMs can be configured based on the application that it is used for.
+    DDR3 provides the capability to configure the various functions, features, and
+    modes which must be programmed via the Mode Register Set (<code>MRS</code>)
+    command. The default values contained within the Mode Registers are not defined
+    and as a result the registers must be initialized and/or re-initialized after
+    power-up and/or reset for proper operation.  Additionally, the contents of the Mode
+    Registers can be altered during normal operation with the <code>MRS</code>
+    command.</p>
+
+    <p>The time between two <code>MRS</code> commands, which is also the time required
+    for a write operation to a mode register to complete, is specified by the mode
+    register set command cycle time, \(t_{MRD}\).</p>
+    <br>
+    <br>
+
+    <h4><strong>AM335x Interface to DDR3 SDRAM</strong></h4>
+
+    <p>According to the <a href="http://www.ti.com/lit/ug/spruh73l/spruh73l.pdf"
+	target="_blank">AM335x TRM</a> Section 7.3, the memory subsystem that is used
+    to interface with the DDR3 memory is the EMIF subsystem.  The features are
+    specified in detail in Section 7.3.1.1.  Some of the notable features are its
+    16-bit data path to external SDRAM memory, support for DDR3 interface, 1GB of
+    memory addressability, programmable bank/row/column addressing schemes,
+    programmable CAS latencies, programmable page size, programmable burst lengths,
+    and more.</p>
+
+    <p>The signals associated with EMIF include a maximum width of 16 bits for the data
+    bus, a maximum width of 16 bits for the address bus with an additional 3 bits
+    for bank selection, differential clock lines, row and column address strobes
+    (RAS and CAS respectively), write enable, data strobe and data mask, chip
+    select, clock enable, and on-die termination.</p>
+
+    <p>An illustration of the control signals and the direction of the signals can be
+    found in Figure 7-202 Section 7.3.3.1, and is shown below.</p>
+
+    <center>
+	<img src="/assets/AM335x-TRM-Figure-7.202-DDR-Memory-Controller-Signals.png" alt="DDR2/3/mDDR Memory ControllerSignals">
+	<br>
+	<b>Figure 2. DDR2/3/mDDR Memory Controller Signals</b>
+    </center>
+    <br>
+    <br>
+
+    <h4><strong>DDR Clock</strong></h4>
+
+    <p>In order for the DDR memory to operate properly that the EMIF subsystem is
+    interfaced with, the clocks going into the memory must be configured beforehand
+    as specified in Section 7.3.3.2.  This clock is derived directly from the DDR
+    PLL's VCO output and is explained in more detail in Section 8.1.  With the type
+    of DDR memory that exists on the Beaglebone Black, the maximum frequency that
+    the memory can operate in is 400 MHz as indicated in the features of the AM335x
+    Processors datasheet as well as the BBB SRM, Section 5.3.1 "512 MB
+    DDR3L".</p>
+    <br>
+    <br>
+
+    <h4><strong>Initializing the DDR3 on the Beaglebone Black</strong></h4>
+
+    <p>Fortunately, TI has provided an extensive amount of documentation on how to
+    properly configure the DDR3 memory with the AM335x processor found on the
+    Beaglebone Black.  To get the DDR3 properly configured, there are three separate
+    components that must be set up.  These involve initializing the clocks going
+    into the DDR memory and the clocks involved in the DDR transactions between the
+    processor and the DDR memory, the EMIF subsystem that determine the
+    characteristics of the DDR, and the DDR PHY registers that tune the timing
+    characteristics of all aspects that are involved with the interface.</p>
+
+    <p>TI has created a wiki that provides an insight on how to configure the 
+    <a href="http://processors.wiki.ti.com/index.php/AM335x_EMIF_Configuration_tips"
+	target="_blank">EMIF subsystem</a> and the <a href="http://processors.wiki.ti.com/index.php/AM335x_DDR_PHY_register_configuration_for_DDR3_using_Software_Leveling">DDR PHY timing charateristcss</a>.  
+    In this wiki, all the information required to set up the AM335x to interface
+    with DDR3 are contained within.</p>
+
+    <p>As for the clocks, the major clock subsystem that must be configured properly is
+    the DDR PLL which must be set to provide 400 MHz which is required to drive the
+    DDR3 on the Beaglebone Black.  More information about this can be found in the
+    AM335x TRM, Section 8 " Power, Reset, and Clock Management (PRCM)".</p>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">June 29, 2015</div>
+    <h3>RTEMS Midterm Report for GSoC 2015</h3>
+    <hr>
+    <h4><strong>Introduction</strong></h4>
+
+    <p>Midterm evaluations are finally here, and as a result this post will be a
+    midterm report of the project that I am undertaking with RTEMS for GSOC 2015.
+    Just to briefly recap of what my project is about, I am porting MicroMonitor,
+    otherwise known as uMon, to the Beaglebone Black.  uMon is an open-source
+    bootloader originally developed by Ed Sutter.  Porting uMon to the Beaglebone
+    Black is an effort to replace the restrictions and limitations imposed on the
+    user and developer by the existing U-Boot bootloader.  This also has the
+    potential to replace other similar bootloaders that impose the same restrictions
+    and limitations.</p>
+    <br>
+    <br>
+
+    <h4><strong>Status</strong></h4>
+
+    <p>Up until this point, all uMon development were based on the newly updated uMon
+    sources that was meticulously reformatted to remove any code that would conflict
+    with the licenses involved.  The next step that was taken was creating the
+    initial Beaglebone Black uMon port directory which was simply duplicated from
+    the existing CSB740 port and has served as the basis for the Beaglebone Black
+    port. </p>
+
+    <p>During the process when the uMon sources were being updated before initially
+    being pushed to the master RTEMS repos, the sources were slightly shifted around
+    and as a result this prevented uMon to build as is.  The reason for this is that
+    there were some dependencies on certain files that were expected to be in one
+    location when in reality they were in a different one.  Once this was resolved,
+    uMon was able to build properly.  The images that were being built were still
+    far away from possibly being able to boot on the Beaglebone Black and so the
+    next steps that were taken was eliminating the unnecessary code that were not
+    relevant to the Beaglebone Black, or more specifically the AM335x SOC located on
+    the board.  Any files and mechanisms that were relied on to exist but were
+    specific to another platform/architecture were subsequently replaced.</p>
+
+    <p>In summary, once the uMon build process was fixed, the base uMon sources were
+    cleaned up, a Beaglebone Black directory was created, and the unnecessary code
+    removed and replaced, the uMon image was built and was booted up on the
+    Beaglebone Black.  As of right now, the main form of transferring the uMon image
+    to the Beaglebone Black is via UART using xmodem.  Other forms of booting uMon
+    are still under development and testing.  With the aforementioned steps taken,
+    the uMon command line was reached on the Beaglebone Black.  With the changes
+    made to the uMon sources in order to build a UART bootable uMon image for the
+    Beaglebone Black, appropriates patches that reflected these changes were
+    developed, submitted, reviewed before finally being merged into the uMon
+    mainline in the RTEMS git repositories.</p>
+
+    <p>After having reached the uMon command line, the next step that was taken was
+    testing whether the basic uMon commands were working.  These commands were
+    simply to display help using "help" and to poke memory with the "dm" and "pm"
+    commands,  These commands are only a subset of the base commands and more
+    functionality will be integrated into uMon as development progresses.</p>
+
+    <p>Executing any of these commands resulted in a data abort exception occurring on
+    the AM335x processor.  After some extensive analysis, it was the result of uMon
+    having an external dependence on the C library.  This external dependence did
+    not exist for the most part with the previous uMon sources.  Since the new uMon
+    sources are an updated version from the previous, some local files had to be
+    removed and replaced with standard-defined ones.  As a result this was the issue
+    that was causing the exception as certain code was not being pulled in and
+    linked properly.  After identifying this issue, the situation was resolved by
+    the integration of a new set of files that serve the same function as the
+    previous local-defined ones and replacing the standard-defined ones.  </p>
+
+    <p>These necessary files were not originally included in the uMon sources but were
+    later included and as a result this removed the external dependence on the C
+    library which was causing some problems.  The inclusion of these essential files
+    have been accomplished and are now integrated with the main uMon sources.</p>
+
+    <p>With the uMon command line reached, the data abort exception resolved, which
+    includes removing uMon's external dependence on the C library the next step that
+    was taken was setting up uMon to be built with the RTEMS toolchain.  This
+    approach will provide a consistent way of building uMon by using the same set of
+    tools utilized when building other RTEMS applications.  This approach will
+    provide more control in the build process and therefore reducing the
+    uncertainty normally associated with third-party built tools.</p>
+    <br>
+    <br>
+
+    <h4><strong>The Results</strong></h4>
+
+    <center>
+	<img src="/assets/uMon-Command-Line.png" alt="uMon Boot Message" />
+	<br>
+	<b>Figure 1. uMon Boot Message</b>
+    </center>
+    <br>
+
+    <center>
+	<img src="/assets/uMon-Command-Line-Help-Command.png" alt="uMon Command Execution" />
+	<br>
+	<b>Figure 2. uMon Command Execution</b><
+    </center>
+    <br>
+
+    <center>
+	<img src="/assets/uMon-Command-Line-Poking-Memory.png" alt="uMon Poking Memory" />
+	<br>
+	<b>Figure 3. uMon Poking Memory</b>
+    </center>
+    <br>
+
+    <p>I have created the necessary patches to build the base uMon image for the
+    Beaglebone Black and are now merged into the main uMon sources at the <a
+	href="https://git.rtems.org/umon" target="_blank">RTEMS git repositories</a>.
+    Additionally, Ed has merged in the
+    necessary files that remove uMon's dependence on the external C library and has
+    updated the makefile to build uMon using the RTEMS toolset.</p>
+    <br>
+    <br>
+
+    <h4><strong>Next Steps</strong></h4>
+
+    <p>Now that the initial jump has been made, there are a lot of exciting aspects of
+    uMon that can be worked on next to integrate additional functionality into the
+    Beaglebone Black port.  For simplicity, it will be enumerated.  This list is by
+    no means complete but includes the important tasks that need to be accomplished
+    and that come to mind.  This list also has no strict adherence to the order of
+    completion.  The next tasks that can be worked on and have to be accomplished
+    are as follows:</p>
+
+    <ul>
+	<li>Boot from uSD (current development involves getting this aspect of uMon
+	    working)</li>
+	<li>Initialize external DDR3 memory</li>
+	<li>Implement Ethernet driver</li>
+	<li>Implement Flash driver</li>
+	<li>Establish official coding conventions of uMon and refactor code accordingly</li>
+	<li>Integrate uMon into the RTEMS Source Builder (RSB)</li>
+	<li>Boot an application by loading it into the external DDR3 memory and then
+	    passing control to it</li>
+    </ul>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">July 08, 2015</div>
+    <h3>Booting uMon from an SD Card</h3>
+    <hr>
+    <p>uMon can now boot from a FAT filesystem or in "raw" form from a bootable SD
+    card.  As a result there are two ways to boot uMon.  That is either using FAT
+    mode or "raw" mode which the AM335x determines as it executes the memory booting
+    procedure associated with booting from an SD card.</p>
+
+    <p>In the case of booting uMon using FAT mode, the uMon image must have a GP header
+    prepended.  This GP header, which is described in the AM335x TRM, Section
+    26.1.9.2 "Image Format for GP Device", lets the AM335x know the size of the uMon
+    image that will be transferred to the internal SRAM as well as the address to
+    where the image will be transferred to.  Additionally, this address also
+    indicates the entry point of the image and as a result once the AM335x transfers
+    the image from the SD card to the internal SRAM software execution jumps to this
+    address.</p>
+
+    <p>With the GP header prepended, the resulting image must be placed at the root
+    directory of the FAT filesystem and named as MLO as this is the location and the
+    name of the image that is searched for.</p>
+
+    <p>On the other hand, booting uMon using "raw" mode, a Configuration Header TOC
+    Structure followed by a GP header must be prepended to the uMon image.  This
+    resulting image must be located at one of the offsets
+    0x00000/0x20000/0x40000/0x60000.</p>
+
+    <p>For more information about the Configuration Header TOC Structure, please refer
+    to the AM335x TRM, Section 26.1.7.5.5.1 "Configuration Header", Table 26-20 and
+    26-21.</p>
+
+    <p>Fortunately, the uMon images corresponding to each of the boot modes are built
+    automatically whenever uMon is built.  These images are located under
+    <code>build_BEAGLEBONEBLACK</code>.  Furthermore, there is a script, <code>sd_setup.sh</code> that
+    sets up an SD card automatically depending on the boot mode desired.  Invoking
+    this script is as follows:</p>
+
+<pre><code>./sd_setup.sh <boot mode> <device></code></pre>
+
+    <p>where <code>&lt;boot mode&gt;</code> is either <code>FAT</code> or <code>RAW</code> and <code>&lt;device&gt;</code> is the SD card.</p>
+
+    <p>For more information about setting up a bootable SD card to boot uMon, please
+    refer to the README in the Beaglebone Black port.</p>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">July 16, 2015</div>
+    <h3>DDR3 is now Initialized and Ready for Normal Operation</h3>
+    <hr>
+
+    <p>The DDR3 is now finally initialized.  Achieving this is one of the major
+    pinnacles of this project because it removes the dependence of uMon from the
+    limited internal SRAM.  As a result, it provides an inherent flexibility of
+    memory use as there is an abundant amount.  Fortunately, uMon does not need a
+    whole lot of RAM but the major benefit of having the DDR3 for use is the ability
+    to bring in applications, such as a kernel, and execute them that would
+    otherwise be impossible or difficult if they were to be executed out of the
+    internal SRAM.</p>
+
+    <p>Some memory diagnostics were performed on the DDR3 memory space to ensure that
+    it is working in perfect condition, and so far it has succeeded those tests.</p>
+
+    <p>Below are some screenshots that depict the attempts of testing the DDR3 with the
+    <code>mt</code> command.  An arbitrary location in the DDR3 memory space is displayed, the
+    <code>mt</code> command is then invoked to complement every 32-bit block, and then it is
+    displayed once more to verify the memory test.</p>
+
+    <center>
+	<img src="/assets/AM335x-DDR3-Test.png" alt="AM335x DDR3 Test" />
+	<br>
+	<b>Figure 1. AM335x DDR3 Test</b>
+    </center>
+    <br>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">August 04, 2015</div>
+    <h3>SD and MMC Functionality Implemented</h3>
+
+    <h4><strong>Introduction</strong></h4>
+
+    <p>This blog post is centered on the idea that interfacing with SD cards and with
+    the onboard eMMC found on the Beaglebone Black is now implemented in uMon.
+    These two essential functionalities provide more flexibility in how uMon boots
+    as well as the multiple possibilities of extracting an application image,
+    transferring it into RAM, and then passing control to it.  In the case of the
+    Beaglebone Black, this application image will be transferred to the external
+    DDR3 memory which has been initialized and configured as indicated in the
+    previous blog posts.</p>
+
+    <p>Given the fact on how similar the initialization and configuration process of SD
+    cards and MMCs, both will be discussed in this post.  In the following sections,
+    the steps that were taken to properly configure the interface between the AM335x
+    SoC on the Beaglebone Black and the SD card as well as the onboard eMMC will be
+    elaborated.</p>
+    <br>
+    <br>
+
+    <h4><strong>MMC/SD Controller</strong></h4>
+
+    <p>The MMC/SD controller on the AM335x is designed to be as transparent as possible
+    in order to work with either an MMC or an SD card.  What distinguishes an MMC
+    from an SD card that the MMC/SD controller will interface with depends on the
+    initialization and configuration process.  One additional card that the
+    controller is designed to also interface with are SDIO cards, which for the
+    purpose of this blog post will not be discussed as it is not used.</p>
+
+    <p>Communications between the controller and the cards is done through the use of a
+    communication based protocol where commands, appropriate responses, and data are
+    exchanged.  MMCs and SD cards share a subset of the possible commands such as
+    retrieving status information and transferring data blocks on the data lines.
+    Additionally, there are some specific commands unique to each device which
+    allows the controller, and effectively the software, to determine whether it is
+    interfacing with an MMC or an SD card.</p>
+
+    <p>There are in total three different MMC/SD controllers on the AM335x which are
+    MMC0, MMC1, and MMC2.  The two main MMC/SD controllers that are used are MMC0
+    and MMC1.  All controllers can in theory interface with either SD or MMC.  On
+    the Beaglebone Black, MMC0 is connected to the SD card connector as shown in the
+    Beaglebone Black Schematic, Sheet 11.  It uses a 4-bit data width <code>MMC0_DAT0</code> to
+    <code>MMC0_DAT3</code>, in addition to the clock <code>MMC0_CLK</code> and command <code>MMC0_CMD</code> lines.
+    An additional line, <code>MMC0_CD</code> is connected to a physical switch on the SD card
+    connector that allows the controller to determine whether an SD card is
+    physically connected.</p>
+
+    <p>On the other hand, MMC1 is connected to the onboard eMMC as shown in the same
+    schematic, Sheet 8.  Here, MMC1 uses an 8-bit data width <code>MMC1_DAT0</code> to
+    <code>MMC1_DAT7</code>, a clock <code>MMC1_CLK</code>, a command <code>MM1_CMD</code>, and a reset <code>eMMC_RSTn</code>
+    line.  <br> <br></p>
+
+    <h4><strong>Initialization and Configuration</strong></h4>
+
+    <p>The first thing that must be done before the corresponding cards are initialized
+    and configured is to intialize and configure the controller itself.  Section
+    18.3 "Low-Level Programming Models" in the AM335x TRM detail the initialization
+    and configuration process.  The general flow is </p>
+
+    <ol>
+	<li>Enable the clocks to the MMCx controllers</li>
+	<li>Reset the controller via software</li>
+	<li>Configure the capabilities of the controller</li>
+	<li>Configure the bus interface</li>
+	<li>Detect, identify and select the MMC/SD card</li>
+    </ol>
+
+    <p>Once the controller is configured, the next step would be to configure the
+    MMC/SD card.</p>
+
+    <p>For the SD card, the initialization and configuration process is elaborated in
+    Section 4.2.3 "Card Initialization and Identification Process", in the Physical
+    Layer Simplified Specification Version 2.00.  This process is also illustrated
+    in a flow chart in Figure 4-1 and Figure 4-2 in the same specification.</p>
+
+    <p>The MMC also has a similar process which is described in Section 7.3.5 "Card
+    Identification Process" in the JEDEC JESD84-A43 eMMC/Card Product Standard.  A
+    flow chart diagram that depicts this process can be seen in Figure 20 of the
+    aforementioned specification.</p>
+
+    <p>Once the initialization and configuration process is completed for the MMCx
+    controllers and the MMC and/or SD card, normal operations can now be performed
+    such as reading and writing data blocks.</p>
+    <br>
+    <br>
+
+    <h4><strong>Interacting with an SD card and the onboard eMMC in uMon</strong></h4>
+
+    <p>Initializing, reading, and writing data blocks to and from the SD card or the
+    eMMC found on the Beaglebone Black is simple and is done through the use of a
+    uMon command.</p>
+
+    <p>As a result, the basic functionalities of the commands that interact with the
+    SD/MMC are initializing, reading, and writing.</p>
+
+    <p>Before any reading and writing is done, the user must ensure that the cards are
+    initialized first.</p>
+
+    <p>For an SD card this would be,</p>
+
+<pre><code>sd init</code></pre>
+
+    <p>and for the eMMC it is</p>
+
+<pre><code>mmc init</code></pre>
+
+    <p>To read data blocks, one would use</p>
+
+<pre><code>sd read &lt;destination address&gt; &lt;block #&gt; &lt;block count&gt;
+</code></pre>
+
+    <p>or</p>
+
+<pre><code>mmc read &lt;destination address&gt; &lt;block #&gt; &lt;block count&gt;
+</code></pre>
+
+    <p>Finally, to write data blocks, one would use</p>
+
+<pre><code>sd write &lt;source address&gt; &lt;block #&gt; &lt;block count&gt;
+</code></pre>
+
+    <p>or</p>
+
+<pre><code>mmc write &lt;source address&gt; &lt;block #&gt; &lt;block count&gt;</code></pre>
+
+    <p><code>&lt;destination address</code> and <code>&lt;source address&gt;</code> dictate where data is written to
+    and read from in main memory respectively, <code>&lt;block #&gt;</code> is the block address that
+    is 512 bytes aligned in both the SD card and MMC, and <code>&lt;block count&gt;</code> is the
+    number of data blocks to be transferred.</p>
+    <br>
+    <br>
+
+    <h4><strong>Testing</strong></h4>
+
+    <p>As an example, Figure 1 below demonstrates inspecting two different locations in
+    DDR3 memory, comparing the memory (which should fail), writing one memory
+    location into the SD card and then reading it back to the other memory location.
+    Finally, the memory locations are compared once more and this time it should
+    succeed.</p>
+
+    <p>Figure 2 is the same as the test that was performed and illustrated in Figure 1
+    but this time with the onboard eMMC used instead.</p>
+
+    <center>
+	<img src="/assets/uMon-SD-Card-Read-Write-and-Compare.png" alt="uMon SD Card Test" />
+	<br>
+	<b>Figure 1. uMon SD Card Test</b>
+    </center>
+    <br>
+
+    <center>
+	<img src="/assets/uMon-MMC-Read-Write-and-Compare.png" alt="uMon eMMC Test" />
+	<br>
+	<b>Figure 2. uMon eMMC Test</b>
+    </center>
+    <br>
+
+
+    <!-- ............................................................... -->
+    <hr class="hr-title">
+    <br>
+    <div class="date-title">September 25, 2015</div>
+    <h3>Google Summer of Code 2015 Now Completed</h3>
+    <p>GSoC 2015 is now finally over.  It has been a great experience being a part of
+    such an amazing program by having the opportunity to work with colleagues and
+    industry professionals on open-source software development.  Not only has it
+    been a privilege to be a part of GSoC 2015, but it has been a privilege to have
+    the opportunity to work with an organization accepted by Google who are working
+    on an area in open-source software development that I have strong interests in. 
+    This organization is RTEMS, who are mainly focusing on the development of the 
+    RTEMS RTOS, Furthermore, I have learned how to use the tools ubiquitous in 
+    open-source software development and how to collaborate and work on real-world
+    projects that I would not be able to experience in a classroom setting.  For
+    that, I am greatly honored to be given the chance to be a part of GSoC 2015.</p>
+
+    <p>The project that I worked on with RTEMS was porting the MicroMonitor (uMon)
+    bootloader to the Beaglebone Black single board computer.  The motivation behind
+    this project was to alleviate the restrictions and limitations imposed on users
+    and developers alike by the U-Boot bootloader who are using the Beaglebone
+    Black.  The Beaglebone Black is a very common and well-known single board computer
+    among hobbyists and the maker-community.  This project has allowed me to gain a
+    deeper understanding of not only the board itself and the various components
+    on board, but specifically the ARM Cortex-A8 architecture.</p>
+
+    <p>Even though the program is now over, there are so many improvements and features
+    to implement in the Beaglebone Black uMon bootloader port.  As a result, I look
+    forward to not only maintaining the current state of the port but to also make
+    improvements and extensions as well.  Additionally I also look forward to extend
+    uMon to other platforms and architectures in the coming future.</p>
+
+    <p>If anyone is interested in keeping track of my development on uMon, feel free to
+    visit my Github repository on the project.</p>
+
+    <p>As a closing remark, I would like to thank my mentors Ed Sutter, Ben Gras,
+    Gedare Bloom, Joel Sherril, my fellow GSoC colleagues, and many others for the
+    support that they have provided me throughout the program.</p>
+</div>
+</section>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../../js/bootstrap.min.js"></script>
+
+
+
+	<!-- Scrolling Nav JavaScript -->
+	<script src="../../js/jquery.easing.min.js"></script>
+	<script src="../../js/scroll.js"></script>
+	<script src="../../js/classie.js"></script>
+	<script src="../../js/navbar-update.js"></script>
+    </body>
+</html>

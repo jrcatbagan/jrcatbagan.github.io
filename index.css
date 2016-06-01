@@ -114,7 +114,7 @@ a:focus {
     border-bottom: 1px solid #eee;
 }
 .content h1 {
-    font-size: 60px;
+    font-size: 500%;
     color: rgb(0, 150, 200);
     text-transform: uppercase;
 }
