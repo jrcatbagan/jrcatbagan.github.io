@@ -53,6 +53,7 @@ body {
 .navbar-default .navbar-brand:focus {
     color: rgb(0, 150, 200);
 }
+/* navbar style when collapsed */
 .navbar-default.navbar-shrink {
     background-color: rgb(25, 25, 25);
     padding: 10px 0;
@@ -66,8 +67,6 @@ body {
 /* landing page */
 header {
     min-height: 100%;;
-} 
-header {
     position: relative;
     background-image: url('images/satellite-array.jpg');
     background-size: cover;
