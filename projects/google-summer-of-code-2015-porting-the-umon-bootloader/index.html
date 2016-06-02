@@ -65,20 +65,90 @@
 	    </div>
 	</nav>
 
+<div class="spacer"></div>
+
 <section class="content">
 <div class="container">
     <center>
-	<h1>Google Summer of Code</h1>
+	<h1>Google Summer of Code 2015</h1>
 	<h3>Porting the MicroMonitor Bootloader</h3>
-	<hr class="hr-title">
     </center>
 </div>
+
+<div class="spacer"></div>
+
+<div class="container">
+    <hr class="hr-title">
+    <ol>
+	<li><a href="#accepted-by-rtems-for-google-summer-of-code-2015">
+		Accepted by RTEMS for Google Summer of Code 2015</a></li>
+	<li><a href="#project-overview-porting-micromonitor-umon-to-the-beaglebone-black">
+		Project Overview: Porting MicroMonitor (uMon) to the Beaglebone Black
+	    </a></li>
+	<li><a href="#am335x-beaglebone-black-boot-process">
+		AM335x/Beaglebone Black Boot Process</a></li>
+	<li><a href="#rudimentary-umon-image-for-beaglebone-black-uart-booting">
+		Rudimentary uMon Image for Beaglebone Black UART Booting</a></li>
+	<li><a href="#the-approach-to-porting-umon-to-the-beaglebone-black">
+		The Approach to Porting uMon to the Beaglebone Black</a></li>
+	<li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black">
+		The Theory Behind External DDR3 initialization on the Beaglebone
+		Black</a></li>
+	<ul>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-sdram-composition-and-operation">
+		    SDRAM Composition and Operation</a></li>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr3-sdram-on-the-beaglebone-black">
+		    DDR3 SDRAM on the Beaglebone Black</a></li>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr3-reset-and-initialization">
+		    DDR3 Reset and Initialization</a></li>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr3-mode-registers">
+		    DDR3 Mode Registers</a></li>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-am335x-interface-to-ddr3-sdram">
+		    AM335x Interface to DDR3 SDRAM</a></li>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr-clock">
+		    DDR Clock</a></li>
+	    <li><a href="#the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-initializing-the-ddr3-on-the-beaglebone-black">
+		    Initializing the DDR3 on the Beaglebone Black</a></li>
+	</ul>
+	<li><a href="#rtems-midterm-report-for-gsoc-2015">
+		RTEMS Midterm Report for GSoC 2015</a></li>
+	<ul>
+	    <li><a href="#rtems-midterm-report-for-gsoc-2015-status">Status</a></li>
+	    <li><a href="#rtems-midterm-report-for-gsoc-2015-the-results">
+		    The Results</a></li>
+	    <li><a href="#rtems-midterm-report-for-gsoc-2015-next-steps">
+		    Next Steps</a></li>
+	</ul>
+	<li><a href="#booting-umon-from-an-sd-card">
+		Booting uMon from an SD Card</a></li>
+	<li><a href="#ddr3-is-now-initialized-and-ready-for-normal-operation">
+		DDR3 is now Initialized and Ready for Normal Operation</a></li>
+	<li><a href="#sd-and-mmc-functionality-implemented">
+		SD and MMC Functionality Implemented</a></li>
+	<ul>
+	    <li><a href="#sd-and-mmc-functionality-implemented-mmc-sd-controller">
+		    MMC/SD Controller</a></li>
+	    <li><a href="#sd-and-mmc-functionality-implemented-initialization-and-configuration">
+		    Initialization and Configuration</a></li>
+	    <li><a href="#sd-and-mmc-functionality-implemented-interacting-with-an-sd-card-and-the-onboard-emmc-in-umon">
+		    Interacting with an SD card and the onboard eMMC in uMon</a></li>
+	    <li><a href="#sd-and-mmc-functionality-implemented-testing">
+		    Testing</a></li>
+	</ul>
+	<li><a href="#google-summer-of-code-2015-is-no-complete">
+		Google Summer of Code 2015 Now Complete</a></li>
+    </ol>
+    <hr class="hr-title">
+</div>
+
+<div class="spacer"></div>
 
 <div class="container">
     <!-- ............................................................... -->
     <br>
     <div class="date-title">May 10, 2015</div>
-    <h3>Accepted by RTEMS for Google Summer of Code 2015</h3>
+    <h3 id="accepted-by-rtems-for-google-summer-of-code-2015">
+	Accepted by RTEMS for Google Summer of Code 2015</h3>
     <hr>
 
     <p>It was a glorious day when I discovered that I was accepted by RTEMS for GSoC
@@ -114,7 +184,8 @@
 
     <!-- ............................................................... -->
     <br>
-    <h3>Project Overview: Porting MicroMonitor (uMon) to the Beaglebone Black</h3>
+    <h3 id="project-overview-porting-micromonitor-umon-to-the-beaglebone-black">
+	Project Overview: Porting MicroMonitor (uMon) to the Beaglebone Black</h3>
     <hr>
 
     <p>My project that I will be working on with RTEMS for GSoC 2015 involves porting
@@ -186,11 +257,14 @@
     <p>More information about MicroMonitor including source releases and documentation
     can be found <a href="http://www.umonfw.com" target="_blank">here</a>.</p>
 
+<div class="spacer"></div>
+
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">May 22, 2015</div>
-    <h3>AM335x/Beaglebone Black Boot Process</h3>
+    <h3 id="am335x-beaglebone-black-boot-process">
+	AM335x/Beaglebone Black Boot Process</h3>
     <hr>
 
     <p>The main goal of this project is to port MicroMonitor to the Beaglebone Black.
@@ -273,12 +347,14 @@
 
     <p>Thanks for tuning in! Until next time!</p>
 
+<div class="spacer"></div>
 
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">May 23, 2015</div>
-    <h3>Rudimentary uMon Image for Beaglebone Black UART Booting</h3>
+    <h3 id="rudimentary-umon-image-for-beaglebone-black-uart-booting">
+	Rudimentary uMon Image for Beaglebone Black UART Booting</h3>
     <hr>
     <p>After understanding what boot options that the AM335x, or in the case of this
     project that would be the Beaglebone Black, there are a multitude of approaches
@@ -414,11 +490,14 @@ BOOTROMLEN=0x19000
     </center>
     <br>
 
+<div class="spacer"></div>
+
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">June 13, 2015</div>
-    <h3>The Approach to Porting uMon to the Beaglebone Black</h3>
+    <h3 id="the-approach-to-porting-umon-to-the-beaglebone-black">
+	The Approach to Porting uMon to the Beaglebone Black</h3>
     <hr>
     <p>The approach that I am taking when porting uMon to the Beaglebone Black is what
     I like to consider as a top-down approach.  What I mean by a top-down approach
@@ -650,15 +729,15 @@ umonBssInit(void)
     <p>The process of configuring the external DDR3 RAM will be documented extensively
     in the next blog post.</p>
 
+<div class="spacer"></div>
 
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">June 14, 2015</div>
-    <h3>The Theory Behind External DDR3 initialization on the Beaglebone
-	Black</h3>
+    <h3 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black">
+	The Theory Behind External DDR3 initialization on the Beaglebone Black</h3>
     <hr>
-    <h4><strong>Introduction</strong></h4>
 
     <p>Before proceeding into the details of configuring and initializing the external
     DDR3 SDRAM on the Beaglebone Black, the theory behind how DDR3 operates, what it
@@ -669,7 +748,8 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>SDRAM Composition and Operation</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-sdram-composition-and-operation">
+	SDRAM Composition and Operation</h4>
 
     <p>DDR3 SDRAM is an abbreviation for the third generation of double data rate
     synchronous dynamic random-access memory.  Breaking down the abbreviation, DRAM
@@ -717,7 +797,8 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>DDR3 SDRAM on the Beaglebone Black</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr3-sdram-on-the-beaglebone-black">
+	DDR3 SDRAM on the Beaglebone Black</h4>
 
     <p>The latest revision of the Beaglebone Black, which is the one that I have and
     will be using for this project when porting uMon, is Revision C.  The board is
@@ -747,7 +828,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>DDR3 Reset and Initialization</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr3-reset-and-initialization">DDR3 Reset and Initialization</h4>
 
     <p>A specific sequence of steps need to be taken when initializing DDR3 SDRAM in
     order to configure the memory properly for use.  In the <a href="https://www.jedec.org/standards-documents/docs/jesd-79-3d">JEDEC DDR3 SDRAM
@@ -805,7 +886,7 @@ umonBssInit(void)
 
     <br>
     <br>
-    <h4><strong>DDR3 Mode Registers</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr3-mode-registers">DDR3 Mode Registers</h4>
 
     <p>DDR3 SDRAMs can be configured based on the application that it is used for.
     DDR3 provides the capability to configure the various functions, features, and
@@ -822,7 +903,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>AM335x Interface to DDR3 SDRAM</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-am335x-interface-to-ddr3-sdram">AM335x Interface to DDR3 SDRAM</h4>
 
     <p>According to the <a href="http://www.ti.com/lit/ug/spruh73l/spruh73l.pdf"
 	target="_blank">AM335x TRM</a> Section 7.3, the memory subsystem that is used
@@ -850,7 +931,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>DDR Clock</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-ddr-clock">DDR Clock</h4>
 
     <p>In order for the DDR memory to operate properly that the EMIF subsystem is
     interfaced with, the clocks going into the memory must be configured beforehand
@@ -863,7 +944,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>Initializing the DDR3 on the Beaglebone Black</strong></h4>
+    <h4 id="the-theory-behind-external-ddr3-initialization-on-the-beaglebone-black-initializing-the-ddr3-on-the-beaglebone-black">Initializing the DDR3 on the Beaglebone Black</h4>
 
     <p>Fortunately, TI has provided an extensive amount of documentation on how to
     properly configure the DDR3 memory with the AM335x processor found on the
@@ -886,13 +967,14 @@ umonBssInit(void)
     AM335x TRM, Section 8 " Power, Reset, and Clock Management (PRCM)".</p>
 
 
+<div class="spacer"></div>
+
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">June 29, 2015</div>
-    <h3>RTEMS Midterm Report for GSoC 2015</h3>
+    <h3 id="rtems-midterm-report-for-gsoc-2015">RTEMS Midterm Report for GSoC 2015</h3>
     <hr>
-    <h4><strong>Introduction</strong></h4>
 
     <p>Midterm evaluations are finally here, and as a result this post will be a
     midterm report of the project that I am undertaking with RTEMS for GSOC 2015.
@@ -906,7 +988,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>Status</strong></h4>
+    <h4 id="rtems-midterm-report-for-gsoc-2015-status">Status</h4>
 
     <p>Up until this point, all uMon development were based on the newly updated uMon
     sources that was meticulously reformatted to remove any code that would conflict
@@ -971,7 +1053,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>The Results</strong></h4>
+    <h4 id="rtems-midterm-report-for-gsoc-2015-the-results">The Results</h4>
 
     <center>
 	<img src="/assets/uMon-Command-Line.png" alt="uMon Boot Message" />
@@ -1003,7 +1085,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>Next Steps</strong></h4>
+    <h4 id="rtems-midterm-report-for-gsoc-2015-next-steps">Next Steps</h4>
 
     <p>Now that the initial jump has been made, there are a lot of exciting aspects of
     uMon that can be worked on next to integrate additional functionality into the
@@ -1025,12 +1107,13 @@ umonBssInit(void)
 	    passing control to it</li>
     </ul>
 
+<div class="spacer"></div>
 
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">July 08, 2015</div>
-    <h3>Booting uMon from an SD Card</h3>
+    <h3 id="booting-umon-from-an-sd-card">Booting uMon from an SD Card</h3>
     <hr>
     <p>uMon can now boot from a FAT filesystem or in "raw" form from a bootable SD
     card.  As a result there are two ways to boot uMon.  That is either using FAT
@@ -1072,12 +1155,13 @@ umonBssInit(void)
     <p>For more information about setting up a bootable SD card to boot uMon, please
     refer to the README in the Beaglebone Black port.</p>
 
+<div class="spacer"></div>
 
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">July 16, 2015</div>
-    <h3>DDR3 is now Initialized and Ready for Normal Operation</h3>
+    <h3 id="ddr3-is-now-initialized-and-ready-for-normal-operation">DDR3 is now Initialized and Ready for Normal Operation</h3>
     <hr>
 
     <p>The DDR3 is now finally initialized.  Achieving this is one of the major
@@ -1104,14 +1188,14 @@ umonBssInit(void)
     </center>
     <br>
 
+<div class="spacer"></div>
 
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">August 04, 2015</div>
-    <h3>SD and MMC Functionality Implemented</h3>
-
-    <h4><strong>Introduction</strong></h4>
+    <h3 id="sd-and-mmc-functionality-implemented">SD and MMC Functionality Implemented</h3>
+    <hr>
 
     <p>This blog post is centered on the idea that interfacing with SD cards and with
     the onboard eMMC found on the Beaglebone Black is now implemented in uMon.
@@ -1130,7 +1214,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>MMC/SD Controller</strong></h4>
+    <h4 id="sd-and-mmc-functionality-implemented-mmc-sd-controller">MMC/SD Controller</h4>
 
     <p>The MMC/SD controller on the AM335x is designed to be as transparent as possible
     in order to work with either an MMC or an SD card.  What distinguishes an MMC
@@ -1162,7 +1246,8 @@ umonBssInit(void)
     <code>MMC1_DAT7</code>, a clock <code>MMC1_CLK</code>, a command <code>MM1_CMD</code>, and a reset <code>eMMC_RSTn</code>
     line.  <br> <br></p>
 
-    <h4><strong>Initialization and Configuration</strong></h4>
+    <h4 id="sd-and-mmc-functionality-implemented-initialization-and-configuration">
+	Initialization and Configuration</h4>
 
     <p>The first thing that must be done before the corresponding cards are initialized
     and configured is to intialize and configure the controller itself.  Section
@@ -1196,7 +1281,8 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>Interacting with an SD card and the onboard eMMC in uMon</strong></h4>
+    <h4 id="sd-and-mmc-functionality-implemented-interacting-with-an-sd-card-and-the-onboard-emmc-in-umon">
+	Interacting with an SD card and the onboard eMMC in uMon</h4>
 
     <p>Initializing, reading, and writing data blocks to and from the SD card or the
     eMMC found on the Beaglebone Black is simple and is done through the use of a
@@ -1242,7 +1328,7 @@ umonBssInit(void)
     <br>
     <br>
 
-    <h4><strong>Testing</strong></h4>
+    <h4 id="sd-and-mmc-functionality-implemented-testing">Testing</h4>
 
     <p>As an example, Figure 1 below demonstrates inspecting two different locations in
     DDR3 memory, comparing the memory (which should fail), writing one memory
@@ -1267,12 +1353,16 @@ umonBssInit(void)
     </center>
     <br>
 
+<div class="spacer"></div>
 
     <!-- ............................................................... -->
     <hr class="hr-title">
     <br>
     <div class="date-title">September 25, 2015</div>
-    <h3>Google Summer of Code 2015 Now Completed</h3>
+    <h3 id="google-summer-of-code-2015-is-no-complete">
+	Google Summer of Code 2015 Now Complete</h3>
+    <hr>
+
     <p>GSoC 2015 is now finally over.  It has been a great experience being a part of
     such an amazing program by having the opportunity to work with colleagues and
     industry professionals on open-source software development.  Not only has it
@@ -1308,6 +1398,8 @@ umonBssInit(void)
     support that they have provided me throughout the program.</p>
 </div>
 </section>
+
+<div class="spacer"></div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
