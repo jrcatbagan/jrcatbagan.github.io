@@ -152,7 +152,7 @@ a:focus {
     top: 0;
     height: 250px;
     width: 100%;
-    background-color: rgba(0, 90, 200, 1);
+    background-color: rgb(0, 150, 200);
 }
 .col-sm-4 {
     padding-bottom: 15px;
