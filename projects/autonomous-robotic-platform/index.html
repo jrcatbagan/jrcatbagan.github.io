@@ -79,14 +79,311 @@
 
 <div class="container">
     <hr class="hr-title">
+    <ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#the-robot">The Robot</a></li>
+	<ul>
+	    <li><a href="#the-robot-robot-operating-system">
+		    Robot Operating System (ROS)</a></li>
+	    <li><a href="#the-robot-the-main-computer">
+		    The Main Computer</a></li>
+	    <li><a href="#the-robot-the-drive-system">The Drive System</a></li>
+	    <li><a href="#the-robot-the-user-interface">The User
+		    Interface</a></li>
+	    <li><a href="#the-robot-sensors">Sensors</a></li>
+	    <li><a href="#the-robot-power-distribution">
+		    Power Distribution</a></li>
+	</ul>
+	<li><a href="#ros-architecture-of-the-system">
+		ROS Architecture of the System</a></li>
+	<li><a href="#2d-mapping">2D Mapping</a></li>
+	<ul>
+	    <li><a href="#2d-mapping-depth-image-to-laser-scan-conversion">
+		    Depth Image to Laser Scan Conversion</a></li>
+	    <li><a href="#2d-mapping-visualizing-the-2d-map">
+		    Visualizing the 2D Map</a></li>
+	</ul>
+	<li><a href="#current-objective">Current Objective</a></li>
+    </ol>
     <hr class="hr-title">
 </div>
 
+<div class="spacer"></div>
+
 <div class="container">
+    <h3 id="introduction">Introduction</h3>
+    <hr>
+    <p>Robotics is a very exciting field and it is amazing to see what robots
+    have come into existence over the past few years.  The capabilities that
+    these robots have, the potential applications that a specific robot can
+    fulfill, and how these robots embody the creativity and ingenuity of their
+    creators is exciting to observe and think about.</p>
+
+    <p>As an engineering student majoring in computer engineering, my interests
+    lie in the computer hardware and software aspects of a robot.  Nonetheless,
+    I enjoy working on other subsystems of a robot from the mechanical
+    side-of-things to the electrical components and so on.</p>
+
+    <p>As part of my senior project at my university and beyond the project
+    itself, as well as a continuation from the ideas that I had previously,
+    I wanted to build a robot that had a purpose in this world.  The way I approached
+    this project was thinking about what are the sort of things that a robot can
+    do that can possibly make the world a better place.</p>
+
+    <p>The idea of building a robot that can go from place to place by itself
+    and at the same time carry items seemed like a cool idea as a start.  This
+    robot would operate mainly in indoor environments and would have potential
+    applications as a server in a food court, distributing laundry in a house,
+    transporting items in a medical facility or business setting, and more.  The
+    potential applications are practically endless</p>
+
+    <p>The construction of this robot would have to be done using
+    cost-effective components integrated with open-source software to not only
+    meet the constraints and requirements of the project but to also demonstrate
+    the practicality of this approach.</p>
+
+    <p>The initial stages of this project will be done with a few of my
+    classmates as part of senior project.</p>
+
+    <br>
+    <h3 id="the-robot">The Robot</h3>
+    <hr>
+
+    <p>In order for the robot to autonomously traverse its environment to reach
+    its destination, the robot would have to know what its environment
+    looks like.  Once it understands its surrounding environment, it would then
+    need to be able to navigate while avoiding obstacles along the way.</p>
+
+    <p>To achieve this, the robot must be capable of constructing a map of its
+    environment, localize itself within this constructed map, and then employ
+    navigation processes for navigation.</p>
+
+    <p>The robot must also be able to operate in a multitude of indoor environments
+    and to allow any user to interact with it.  As a result, an LCD touchscreen
+    is integrated to provide a user-friendly interface to the robot.</p>
+
+    <p>Since it's main task is to be able to transport items in indoor
+    environments, the robot is fitted with a shelving platform constructed from
+    PVC pipe for the frame and acrylic sheets for the shelves.</p>
+    <br>
+
+    <div class="row">
+	<div class="col-sm-6">
+	    <div
+		style="height:500px;width:auto;text-align:center;position:relative;">
+		<img src="/assets/robot-front-view.jpg"
+		style="position:absolute;top:50%;left:50%;width:500px;transform:translate(-50%,
+		-50%)
+		rotate(90deg);">
+	    </div>
+	    <br>
+	    <center><b>Front view of the robot.</b></center>
+	</div>
+	<div class="col-sm-6">
+	    <div
+		style="height:500px;width:auto;text-align:center;position:relative;">
+		<img src="/assets/robot-diagonal-view.jpg"
+		style="position:absolute;top:50%;left:50%;width:500px;transform:translate(-50%,
+		-50%)
+		rotate(90deg);">
+	    </div>
+	    <br>
+	    <center><b>Diagonal view of the robot.</b></center>
+	</div>
+    </div>
+
+    <br>
+    <h4 id="the-robot-robot-operating-system">
+	Robot Operating System (ROS)</h4>
+    <p>Because of the numerous aspects involved in a robot such as ours, we
+    wanted to utilize <a href="http://www.ros.org">ROS (Robot Operating System)</a>
+    to aid in software development.  Not only do we have access to a wide
+    variety of tools, libraries, and conventions, but we have much more
+    flexibility in focusing on the actual robot itself without having to worry
+    about the low-level details.</p>
+
+    <p>The version of ROS we are using is Indigo.  This version of ROS seem to
+    work the best given the hardware we are running on and the requirements of
+    the other components that we would need to interface to.</p>
+
+    <div class="row">
+	<div class="col-sm-6">
+	    <div
+		style="height:250px;width:100%;position:relative;">
+		<img src="/assets/ros-logo.png"
+		style="width:75%;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">
+	    </div>
+	</div>
+	<div class="col-sm-6">
+	    <div style="height:250px;width:100%;text-align:center;">
+		<img src="/assets/ros-indigo-icon.png" style="height:100%;">
+	    </div>
+	</div>
+    </div>
+
+    <br>
+    <h4 id="the-robot-the-main-computer">The Main Computer</h4>
+    <p>The main computer on the robot is the
+    <a href="http://www.nvidia.com/object/jetson-tk1-embedded-dev-kit.html"
+	target="_blank"> Nvidia Jetson TK1</a> single board
+    computer.  It contains a quad core ARM Cortex A15 CPU clocked at 2.3 GHz and a
+    Tegra K1 GPU housing 192 CUDA cores with up to 326 GFLOPS of performance.
+    It is running Linux4Tegra, which is a version of Ubuntu 14.04 optimized
+    for the SBC.</p>
+
+    <p>Given the amount of resource-intensive applications that will run on the
+    robot, the NVIDIA Jetson TK1 SBC was chosen based on its performance and
+    low-power consumption without compromising cost-effectiveness.</p>
+
+    <br>
+    <h4 id="the-robot-the-drive-system">The Drive System</h4>
+    <p>The drive system currently consists of the following.</p>
+    <ul>
+	<li><a href="http://www.ionmc.com/RoboClaw-2x15A-Motor-Controller_p_10.html" target="_blank">
+		RoboClaw 2x15A Motor Controller</a></li>
+	<li><a href="https://www.servocity.com/html/313_rpm_hd_planetary_gear_moto.html#.V1DjlGErI3E" target="_blank">
+		12V 313 RPM 27:1 Planetary Gear Motor with a 12 PPR Encoder</a></li>
+	<li>4.9" Wheels for FWD</li>
+	<li>Free-swivel back caster</li>
+    </ul>
+
+    <br>
+    <p>The main computer is interfaced to the motor controller via a
+    USB-to-serial interface where motor commands are sent and encoder values are
+    received.  All of the software-logic responsible for all data transactions
+    on this interface is accomplished by a ROS node.  This node will be
+    discussed more in a later section.</p>
+
+    <br>
+    <h4 id="the-robot-the-user-interface">The User Interface</h4>
+
+    <p>The user interface consists of a 7" LCD touchscreen attached on top of
+    the robot.  This is to allow any user to be able to interact with the robot
+    such as accessing statistics and giving commands.</p>
+
+    <div class="row">
+	<div class="col-sm-12">
+	    <center>
+		<img src="/assets/robot-lcd-touchscreen-view.jpg" alt="LCD touchscreen"
+						    style="height:500px;">
+	    </center>
+	    <br>
+	    <center><b>LCD touchscreen on top of the robot.</b></center>
+	</div>
+    </div>
+
+    <br>
+    <p>The user interface is driven by a Raspberry Pi 2 with the GUI application
+    written using the <a href="https://kivy.org#home" target="_blank">
+	kivy</a> framework.</p>
+
+    <p>With the GUI application running on the Raspberry Pi 2, the Raspberry Pi
+    itself is connected to the main computer via an Ethernet connection.  With
+    the hardware connection in place, all that is left to accomplish is to
+    develop a ROS node that will listen for and relay data on this Ethernet
+    connection.  The flow of data will be based on how the user manipulates the
+    user interface.</p>
+
+
+    <br>
+    <h4 id="the-robot-sensors">Sensors</h4>
+    <p>The main sensor on the robot at the moment, is a Microsoft Kinect 360 sensor
+    that is mainly used to obtain depth information of the environment.  The
+    robot performs 2D-mapping to construct a map of the surrounding environment.
+    Since the ROS implementation that is used to construct this map requires
+    laser data, depth information from the Kinect is converted to an equivalent
+    laser scan using a ROS node that accomplishes this.  More information about
+    the ROS side-of-things will be given in more detail shortly.</p>
+
+    <br>
+    <h4 id="the-robot-power-distribution">Power Distribution</h4>
+    <p>Power is supplied to the various components using three separate battery
+    sources for the main computer, the Kinect sensor, and the motors.  The
+    intention behind separating the power distribution is to mitigate the
+    situation of fluctuations in the power supply since all components have
+    different power demands.  In particular, since the motors will draw most of
+    the power, sharing the power source with other sensitive components does not
+    seem like a practical approach.</p>
+
+    <p>Future improvements could look into unifying the distribution of power
+    via a reliable and stable power source to reduce costs and hassle in the
+    long term.</p>
+
+    <br>
+    <h3 id="ros-architecture-of-the-system">ROS Architecture of the System</h3>
+    <hr>
+
+    <div class="row">
+	<div class="col-sm-12">
+	    <img src="/assets/ros-system-architecture.png"
+		alt="ROS System Architecture">
+	</div>
+    </div>
+
+    <br>
+    <h3 id="2d-mapping">2D Mapping</h3>
+    <hr>
+    <p>In order for the robot to traverse its environment autonomously, it would
+    need to understand what its environment looks like.  It accomplishes this by
+    constructing a 2D map using a ROS wrapper of <a
+	href="http://www.openslam.org/gmapping.html" target="_blank">
+	OpenSLAM's Gmapping</a> implementation.  This ROS wrapper is simply the
+    <a href="http://wiki.ros.org/gmapping" target="_blank">gmapping</a> package.</p>
+
+    <br>
+    <h4 id="2d-mapping-depth-image-to-laser-scan-conversion">
+	Depth Image to Laser Scan Conversion</h4>
+    <p>The gmapping node constructs a 2D map using laser scans obtained from a
+    laser sensor.  Since the robot that we are currently building does not have
+    a laser sensor but instead a Kinect sensor that can obtain depth
+    information, we perform a conversion through the use of the
+    <a href="http://wiki.ros.org/depthimage_to_laserscan" target="_blank">
+	depthimage_to_laserscan</a> node.</p>
+
+    <br>
+    <h4 id="2d-mapping-visualizing-the-2d-map">
+	Visualizing the 2D Map</h4>
+    <p>To verify that the 2D mapping process is operating as intended,
+    <a href="http://wiki.ros.org/rviz" target="_blank">rviz</a>, which is one of
+    the popular robot visualization tools, is used.</p>
+
+    <div class="row">
+	<div class="col-sm-12">
+	    <center>
+		<img src="/assets/ros-rviz-screenshot-4.png"
+		    style="width:75%;">
+		<br>
+		<b>Visualizing the laser scan.</b>
+	    </center>
+	</div>
+	<div class="col-sm-12">
+	    <center>
+		<img src="/assets/ros-rviz-screenshot-3.png"
+		    style="width:75%;">
+	    </center>
+	</div>
+	<div class="col-sm-12">
+	    <center>
+		<img src="/assets/ros-rviz-screenshot-1.png"
+		    style="width:75%;">
+	    </center>
+	</div>
+	<div class="col-sm-12">
+	    <center>
+		<img src="/assets/ros-rviz-screenshot-2.png"
+		    style="width:75%;">
+	    </center>
+	</div>
+    </div>
+
+    <br>
+    <h3 id="current-objective">Current Objective</h3>
+    <hr>
+    <p>The current objective</p>
+
 </div>
 </section>
 
-<div class="spacer"></div>
 
 <div class="spacer"></div>
 

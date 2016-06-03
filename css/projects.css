@@ -108,7 +108,8 @@ a:focus {
 }
 
 .col-sm-4,
-.col-sm-6 {
+.col-sm-6,
+.col-sm-12 {
     padding-bottom: 15px;
 }
 @media (min-width: 768px) {
