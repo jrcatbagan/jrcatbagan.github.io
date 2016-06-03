@@ -292,8 +292,15 @@
     robot performs 2D-mapping to construct a map of the surrounding environment.
     Since the ROS implementation that is used to construct this map requires
     laser data, depth information from the Kinect is converted to an equivalent
-    laser scan using a ROS node that accomplishes this.  More information about
-    the ROS side-of-things will be given in more detail shortly.</p>
+    laser scan using a ROS node that accomplishes this.</p>
+
+    <p>The driver that is used for interfacing to the Kinect sensor on the main
+    computer under ROS Indigo is <a href="https://openkinect.org/wiki/Main_Page" target="_blank">
+	libfreenect</a>.  To ensure that all necessary programs and
+    dependencies are executed in order for the KInect sensor to run properly
+    under ROS, the <a href="http://wiki.ros.org/freenect_launch" target="_blank">freenect_launch</a> package is
+    used.</p>
+
 
     <br>
     <h4 id="the-robot-power-distribution">Power Distribution</h4>
@@ -356,6 +363,9 @@
 		<b>Visualizing the laser scan.</b>
 	    </center>
 	</div>
+
+	<br>
+	<center><b>Various attempts at mapping my hallway</b></center>
 	<div class="col-sm-12">
 	    <center>
 		<img src="/assets/ros-rviz-screenshot-3.png"
@@ -379,8 +389,58 @@
     <br>
     <h3 id="current-objective">Current Objective</h3>
     <hr>
-    <p>The current objective</p>
 
+    <p>One of the major issues that the robot is experiencing is its difficulty in
+    moving straight.  This issue is much more prominent after the robot turns or
+    rotates.  The main reason for this is a direct result of the back
+    free-swivel caster being in an open-loop configuration.  In other words,
+    there is no way for the robot to determine what the orientation of the back
+    caster and so when the robot thinks it's going straight, it might not
+    actually be.</p>
+
+    <p>The robot's difficulty in moving straight also affects the accuracy of
+    the 2D-map that is constructed.  The current design of the motor control
+    node does not take into account the drifts that might occur between the two
+    encoder values that it obtains from the motor controller, and as a result is
+    also a contributing factor to the inaccuracy of the map.</p>
+
+    <p>The main objective at the moment is to either implement the functionality in
+    the motor control node to perform a "self-correcting" maneuver to align the
+    back free-swivel caster after turning, or to simply employ a system where
+    the robot will be able to determine the orientation of all the wheels.</p>
+
+    <p>Furthermore, the motor control node would have to be improved to
+    appropriately handle both encoder values that is obtained from the motor
+    controller.</p>
+
+
+    <p>Once these issues are resolved, the next step would be to look into
+    integrating navigation and localization through the possible uses of the
+    <a href="http://wiki.ros.org/navigation" target="_blank">navigation stack</a>
+    and <a href="http://wiki.ros.org/amcl" target="_blank">amcl</a> package
+    respectively.
+
+    As a quick overview of what the major tasks that must be accomplished in
+    order to reach a point where the robot would satisfy the requirements of the
+    project, the following list is provided.
+
+    <br>
+    <ul>
+	<li>Implement the user-interface node to interface with the GUI application</li>
+	<li>Unify power distribution</li>
+	<li>Upgrade the Kinect sensor to a laser sensor for a wider viewing
+	    angle and farther depth range</li>
+	<li>Migrate the GUI application driver from the Raspberry Pi 2 to the main
+	    computer</li>
+	<li>Improve drive system configuration for more reliable robot control;
+	    possible solutions are as follows:
+	    <ul>
+		<li>omni-wheel drive</li>
+		<li>closed-loop back caster configuration</li>
+	    </ul>
+	<li>Integrate the navigation stack</li>
+	<li>Integrate localization</li>
+    </ul>
 </div>
 </section>
 
